@@ -1,0 +1,110 @@
+:root {
+  --accent: #007bff;
+  --bg-card: #111;
+  --bg-cert: #1a1a1a;
+  --text-main: #fff;
+  --text-muted: #bbb;
+}
+
+.certs-section {
+  padding: 40px 0;
+}
+
+.certs-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.certs-card h2 {
+  font-size: 1.8rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.certs-card .lead {
+  color: #aaa;
+}
+
+.certs-tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.tab {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #333;
+  color: var(--text-main);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background: var(--accent);
+}
+
+.certs-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.cert.card {
+  background: var(--bg-cert);
+  border-radius: 12px;
+  padding: 16px;
+  color: var(--text-main);
+}
+
+.cert.card img {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.cert.card strong {
+  font-size: 16px;
+}
+
+.cert.card .muted {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.cert.card .btn {
+  margin-top: 12px;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+}

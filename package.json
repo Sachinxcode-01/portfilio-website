@@ -1,0 +1,24 @@
+{
+  "name": "ashthetic-portfolio-final",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "emailjs-com": "^3.2.0",
+    "framer-motion": "^10.12.6",
+    "lucide-react": "^0.552.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^6.14.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "vite": "^5.0.0"
+  }
+}

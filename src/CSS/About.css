@@ -1,0 +1,98 @@
+:root {
+  --accent: #00b4ff;
+  --accent-2: #00ffe0;
+  --bg-dark: #0d0d0d;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --text-light: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+.about-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, var(--bg-dark), #000);
+  color: white;
+  padding: 3rem 1rem;
+  z-index: 1;
+}
+
+.about-card {
+  width: 100%;
+  max-width: 1100px;
+  text-align: left;
+  margin-top: 1rem;
+  line-height: 1.8;
+  background: var(--card-bg);
+  padding: 3rem 3.5rem;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0, 255, 200, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.about-header {
+  font-size: 1.9rem;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.education-section {
+  margin-top: 3rem;
+}
+
+.education-header {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.education-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.edu-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 15px rgba(0, 255, 200, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.edu-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.edu-title {
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  font-size: 1.25rem;
+}
+
+.edu-institute {
+  color: var(--text-light);
+  margin-bottom: 0.2rem;
+}
+
+.edu-details {
+  color: var(--text-muted);
+}

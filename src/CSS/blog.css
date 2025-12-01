@@ -1,0 +1,97 @@
+.blog-section {
+  width: 100%;
+  padding: 3rem 8%;
+  color: white;
+  text-align: center;
+}
+
+.blog-title {
+  font-size: 2rem;
+  margin-bottom: 0.2rem; /* less top margin */
+  color: #fff;
+}
+
+.blog-sub {
+  color: #aaa;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.blog-post {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.8rem;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.post-text {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* vote buttons */
+.vote-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.vote-btn-circle {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 50%;
+  padding: 0.8rem;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  box-shadow: 0 0 8px rgba(255,255,255,0.05);
+}
+
+.vote-btn-circle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.vote-btn-circle.active.agree {
+  background: rgba(0, 255, 130, 0.15);
+  color: #00ff82;
+  box-shadow: 0 0 10px rgba(0, 255, 130, 0.4);
+}
+
+.vote-btn-circle.active.disagree {
+  background: rgba(255, 0, 70, 0.15);
+  color: #ff0050;
+  box-shadow: 0 0 10px rgba(255, 0, 70, 0.4);
+}
+
+.vote-btn-circle:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.vote-count {
+  position: absolute;
+  bottom: -0.5rem;
+  font-size: 0.7rem;
+  color: #aaa;
+}
