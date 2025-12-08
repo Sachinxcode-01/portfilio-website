@@ -19,11 +19,11 @@ const CERTS = {
       link: "/certs/Python.jpg",
     },
     {
-      title: "HTML Course",
-      org: "Udemy",
+      title: "Hackerrank Python (Basic) Certificate",
+      org: "HackerRank",
       date: "2025",
-      img: "/certs/HTML.jpg",
-      link: "/certs/HTML.jpg",
+      img: "/certs/hackerrank.jpg",
+      link: "/certs/hackerrank.jpg",
     },
   ],
   other: [
