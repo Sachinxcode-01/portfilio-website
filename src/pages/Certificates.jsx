@@ -22,8 +22,8 @@ const CERTS = {
       title: "Hackerrank Python (Basic) Certificate",
       org: "HackerRank",
       date: "2025",
-      img: "/certs/Hackerrank.jpg",
-      link: "/certs/Hackerrank.jpg",
+      img: "/certs/Hacker.jpg",
+      link: "/certs/Hacker.jpg",
     },
   ],
   other: [
