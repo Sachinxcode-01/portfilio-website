@@ -8,13 +8,13 @@ const IMAGES = {
     {
       id: 1,
       caption: "✨ \"Lost in moments, found with friends 🤝💫\"",
-      photos: ["/gallery/gal1.jpg", "/gallery/gal2.jpg"],
+      photos: ["/gallery/gal1.jpg", "/gallery/gal2.jpg","/gallery/gal6.jpg"],
     },
     {
       id: 2,
       caption:
         "✨ Lost in my own little world 🌌💭",
-      photos: ["/gallery/gal3.jpg", "/gallery/gal4.jpg"],
+      photos: ["/gallery/gal3.jpg", "/gallery/gal4.jpg","/gallery/gal5.jpg"],
     },
   ],
   projects: [
