@@ -23,7 +23,7 @@ const PROJECTS = [
     title: '⏳ Loading ',
     desc: '----',
     ss: '/loading.jpg',
-    tech: ['Mediapipe', 'TensorFlow'],
+    tech: [],
     live: '#',
     code: '#'
   },
@@ -39,7 +39,7 @@ const PROJECTS = [
     title: '⏳  Loading',
     desc: '----',
     ss: '/loading.jpg',
-    tech: ['Gemini API', 'LangChain', 'Python', 'Streamlit'],
+    tech: [],
     live: '#',
     code: '#'
   },
