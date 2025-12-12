@@ -18,7 +18,6 @@ export default function Home() {
     'Computer Science Engineer',
     "Python Developer",
     'Web Developer',
-    'Developer',
     'React.js Developer',
   ]
 
