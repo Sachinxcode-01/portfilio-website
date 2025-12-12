@@ -20,14 +20,6 @@ const PROJECTS = [
   code: 'https://github.com/Sachinxcode-01/brighthorizonschool.com.git'
   },
   {
-    title: '⏳ Loading ',
-    desc: '----',
-    ss: '/loading.jpg',
-    tech: [],
-    live: '#',
-    code: '#'
-  },
-  {
   title: '💼 Portfolio Website',
   desc: 'A modern and responsive portfolio built with React and Framer Motion, showcasing projects, skills, and achievements with smooth animations and interactive UI.',
   ss: '/loading.jpg',
