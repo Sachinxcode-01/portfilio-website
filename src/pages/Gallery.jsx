@@ -14,7 +14,7 @@ const IMAGES = {
       id: 2,
       caption:
         "✨ Lost in my own little world 🌌💭",
-      photos: ["/gallery/gal3.jpg", "/gallery/gal4.jpg","/gallery/gal5.jpg"],
+      photos: ["/gallery/gal3.jpg", "/gallery/gal4.jpg","/gallery/gal5.jpg","/gallery/gal7.jpg","/gallery/gal8.jpg"],
     },
   ],
   projects: [
