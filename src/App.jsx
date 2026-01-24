@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
@@ -33,6 +34,7 @@ export default function App() {
       <footer className="footer">
         © {new Date().getFullYear()} Sachin K — Built with React
       </footer>
+      <SpeedInsights />
     </div>
   )
 }
