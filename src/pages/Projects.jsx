@@ -12,11 +12,11 @@ const PROJECTS = [
     code: 'https://github.com/Sachinxcode-01/calculator-app.git'
   },
   {
-  title: '🌈 Bright Horizon School Website',
-  desc: '“A clean and modern school website with notices, admissions, faculty info, and gallery.”',
+  title: '🌈 Bright Horizon School FullStack Website',
+  desc: 'A full-stack school management website featuring authentication, admin dashboard, dynamic content, admissions, and media gallery.',
   ss: '/bhs.jpg',
-  tech: ['HTML','CSS','JavaScript'],
-  live: '#',
+  tech: ['TSX', 'TypeScript', 'React/Next.js', 'CSS'],
+  live: 'https://bright-horizon-school.vercel.app/',
   code: 'https://github.com/Sachinxcode-01/brighthorizonschool.com.git'
   },
   {
@@ -32,8 +32,8 @@ const PROJECTS = [
   desc: 'A modern and responsive portfolio built with React and Framer Motion, showcasing projects, skills, and achievements with smooth animations and interactive UI.',
   ss: '/loading.jpg',
   tech: ['React', 'Framer Motion', 'Tailwind CSS'],
-  live: '#',
-  code: '#'
+  live: 'https://sachinxcoder-chi.vercel.app/',
+  code: 'https://github.com/Sachinxcode-01/portfilio-website.git'
   },
   {
     title: '⏳  Loading',
