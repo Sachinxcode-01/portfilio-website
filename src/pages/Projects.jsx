@@ -20,12 +20,12 @@ const PROJECTS = [
   code: 'https://github.com/Sachinxcode-01/brighthorizonschool.com.git'
   },
   {
-    title: '⏳ Loading ',
-    desc: '----',
-    ss: '/loading.jpg',
-    tech: ['Mediapipe', 'TensorFlow'],
+    title: 'Smart Attendance System AI',
+    desc: 'A contactless, automated attendance system achieving >99% accuracy using ArcFace & Computer Vision. Features real-time face recognition, intruder security alerts (Email/Voice), and automated CSV reporting.',
+    ss: '/smartattendance.jpg',
+    tech: ['Python 3.10', 'OpenCV', 'InsightFace', 'CustomTkinter', 'Pandas'],
     live: '#',
-    code: '#'
+    code: 'https://github.com/Sachinxcode-01/SmartAttendance-by-Using-FaceRecogniition-AI-.git'
   },
   {
   title: '💼 Portfolio Website',
