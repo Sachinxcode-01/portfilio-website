@@ -262,5 +262,5 @@ export default function Resume() {
 
       </motion.div>
     </section>
-  );
+  )
 }
