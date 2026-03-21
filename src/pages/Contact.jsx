@@ -69,11 +69,11 @@ export default function Contact() {
 
   const quickLinks = [
     { img: githubLogo, title: "GitHub", link: "https://github.com/Sachinxcode-01" },
-    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/kunj-desai-07717b293/" },
+    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/sachin-k-520a67392?" },
     { img: gmailLogo, title: "Email", link: "mailto:saxhin0708@gmail.com" },
-    { img: whatsappLogo, title: "WhatsApp", link: "https://wa.me/+918758209508" },
-    { img: instagramLogo, title: "Instagram", link: "https://www.instagram.com/_ohh_itz_sachin_/" },
-    { img: facebookLogo, title: "Facebook", link: "https://www.facebook.com/kunj.desai.222608" },
+    { img: whatsappLogo, title: "WhatsApp", link: "https://wa.me/+919880762623" },
+    { img: instagramLogo, title: "Instagram", link: "https://www.instagram.com/ohh_itz_sachin_?igsh=eWRkeDBmdzc3MzBl/" },
+    { img: facebookLogo, title: "Facebook", link: "https://www.facebook.com/_ohh_itz_sachin_" },
   ];
 
   return (
