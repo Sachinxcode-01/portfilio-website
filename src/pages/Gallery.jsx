@@ -8,13 +8,13 @@ const IMAGES = {
     {
       id: 1,
       caption: "✨ \"Lost in moments, found with friends 🤝💫\"",
-      photos: ["/gallery/gal1.jpg", "/gallery/gal2.jpg","/gallery/gal6.jpg"],
+      photos: ["/gallery/gal1.jpg", "/gallery/gal2.jpg", "/gallery/gal6.jpg"],
     },
     {
       id: 2,
       caption:
         "✨ Lost in my own little world 🌌💭",
-      photos: ["/gallery/gal3.jpg", "/gallery/gal4.jpg","/gallery/gal7.jpg","/gallery/gal8.jpg"],
+      photos: ["/gallery/gal3.jpg", "/gallery/gal4.jpg", "/gallery/gal7.jpg", "/gallery/gal8.jpg"],
     },
   ],
   projects: [
@@ -24,7 +24,7 @@ const IMAGES = {
         "🧮 Quick Math, Clean Code.",
       photos: ["/gallery/cal1.png", "/gallery/cal.png"],
     },
-    
+
     {
       id: 1,
       caption:
@@ -40,8 +40,8 @@ const IMAGES = {
     },
     {
       id: 2,
-      caption: " --🤖-- ",
-      photos: ["/gallery/loading.jpg"],
+      caption: "Participated in Hackathon 2026",
+      photos: ["/gallery/hackathon.jpg"],
     },
   ],
 };
@@ -147,9 +147,8 @@ export default function Gallery() {
             >
               <p className="caption">{post.caption}</p>
               <div
-                className={`photo-grid ${
-                  post.photos.length > 1 ? "multi" : "single"
-                }`}
+                className={`photo-grid ${post.photos.length > 1 ? "multi" : "single"
+                  }`}
               >
                 {post.photos.map((src, i) => (
                   <motion.div
