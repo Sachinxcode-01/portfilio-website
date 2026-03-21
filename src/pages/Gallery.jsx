@@ -28,7 +28,7 @@ const IMAGES = {
     {
       id: 1,
       caption:
-        "📂Portfilio - Smart - Portfilior",
+        "📂 Portfolio - Smart - Portfolio",
       photos: ["/gallery/web1.png", "/gallery/web2.png"],
     },
   ],

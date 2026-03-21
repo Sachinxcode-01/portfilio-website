@@ -2,7 +2,7 @@
 Welcome to my personal portfolio website built with **React.js**, **Framer Motion**, and **modern UI design** principles.
 It showcases my work, projects, skills, and journey as a developer passionate about **AI, ML, and Web Technologies**.
 
-🌐 **Website:** [[[Sachin K-Portfolio]](https://portfilio-website-chi.vercel.app/)]
+🌐 **Website:** [[[Sachin K-Portfolio]](https://portfolio-website-chi.vercel.app/)]
 
 
 
@@ -64,7 +64,7 @@ If you’d like to collaborate or just say hi 👋, feel free to reach out!
 ## 🌟 Deployment
 
 Deployed seamlessly on **Vercel** for continuous integration and fast CDN delivery.
-Every push to the `main` branch triggers an automatic rebuild and deployment.
+Every push to the `master` branch triggers an automatic rebuild and deployment.
 
 ---
 
