@@ -42,11 +42,11 @@ const CERTS = {
       link: "/certs/genai.jpg",
     },
     {
-      title: "⏳ Loading",
-      org: "-----",
+      title: "Intro to HTML & CSS",
+      org: "Udemy",
       date: "2025",
-      img: "/certs/certif.jpg",
-      link: "/certs/certif.jpg",
+      img: "/certs/HTML.jpg",
+      link: "/certs/HTML.jpg",
     },
   ],
 };
