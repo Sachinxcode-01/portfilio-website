@@ -25,6 +25,26 @@ export default function Blog() {
       title: "Building My Future in CSE",
       text: "From machine learning models to web development, every project I create takes me one step closer to becoming the engineer I dream to be. I believe in learning daily, improving daily, and building a future I'm proud of.",
     },
+    {
+      id: 5,
+      title: "Hackathon 2026: A Weekend of Innovation",
+      text: "Participating in Hackathon 2026 was a turning point. Working with a team of like-minded individuals to solve real-world problems in just 48 hours was intense but incredibly rewarding. It showed me the power of collaboration and fast-paced development.",
+    },
+    {
+      id: 6,
+      title: "The Rise of Generative AI",
+      text: "Generative AI is not just a trend; it's a tool that's redefining how we create. From my GenAI workshop experience, I've realized that understanding these models is crucial for any modern engineer. I'm excited to keep exploring this frontier.",
+    },
+    {
+      id: 7,
+      title: "Open Source: Sharing is Learning",
+      text: "Setting up my GitHub and sharing my projects has taught me that the developer community is built on openness. Getting feedback and seeing how others solve the same problems has accelerated my learning journey significantly.",
+    },
+    {
+      id: 8,
+      title: "Philosophy of a First-Year CSE Student",
+      text: "Being in my first year at REC Hulkoti, everything is new and exciting. My simple philosophy? Stay curious, don't be afraid to break things, and always keep the 'Hello World' spirit alive — no matter how complex the project gets.",
+    },
   ];
 
   const [posts, setPosts] = useState([]);
