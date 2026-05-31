@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://portfolio-website-chi.vercel.app/">
+  <a href="https://sachinxcoder-chi.vercel.app/">
     <img src="https://img.shields.io/badge/Live_Demo-🚀-00FFE0?style=for-the-badge&logo=vercel" alt="Live Demo" />
   </a>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
@@ -158,7 +158,7 @@ Let's collaborate, innovate, and build something incredible together:
 * 📧 **Primary Email**: [saxhin0708@gmail.com](mailto:saxhin0708@gmail.com)
 * 💼 **LinkedIn Profile**: [linkedin.com/in/sachin-k-5b6689322](https://www.linkedin.com/in/sachin-k-5b6689322)
 * 💻 **GitHub Hub**: [github.com/Sachinxcode-01](https://github.com/Sachinxcode-01)
-* 🚀 **Vercel Live URL**: [portfolio-website-chi.vercel.app](https://portfolio-website-chi.vercel.app/)
+* 🚀 **Vercel Live URL**: [sachinxcoder-chi.vercel.app](https://sachinxcoder-chi.vercel.app/)
 
 ---
 
