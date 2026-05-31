@@ -1,7 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import "../CSS/Home.css"
-import '../index.css' 
+import '../index.css'
 
 
 // 🖼️ Import Assets
@@ -22,16 +23,17 @@ export default function Home() {
   ]
 
   const quickLinks = [
-    { img: githubLogo, title: 'GitHub', link: 'https://github.com/Sachinxcode-01' },
-    { img: linkedinLogo, title: 'LinkedIn', link: 'https://www.linkedin.com/in/sachin-k-520a67392?' },
-    { img: gmailLogo, title: 'Email', link: 'mailto:saxhin0708@gmail.com' },
-    { img: whatsappLogo, title: 'WhatsApp', link: 'https://wa.me/+919880762623' },
+    { img: githubLogo,    title: 'GitHub',    link: 'https://github.com/Sachinxcode-01' },
+    { img: linkedinLogo,  title: 'LinkedIn',  link: 'https://www.linkedin.com/in/sachin-k-5b6689322' },
+    { img: gmailLogo,     title: 'Email',     link: 'mailto:saxhin0708@gmail.com' },
+    { img: whatsappLogo,  title: 'WhatsApp',  link: 'https://wa.me/+919880762623' },
     { img: instagramLogo, title: 'Instagram', link: 'https://www.instagram.com/ohh_itz_sachin_?igsh=eWRkeDBmdzc3MzBl/' },
-    { img: facebookLogo, title: 'Facebook', link: 'https://www.facebook.com/_ohh_itz_sachin_' },
+    { img: facebookLogo,  title: 'Facebook',  link: 'https://www.facebook.com/_ohh_itz_sachin_' },
   ]
 
   return (
     <section className="home-section">
+
       {/* Typing Effect Styles */}
       <style>
         {`
@@ -78,7 +80,7 @@ export default function Home() {
           className="home-info"
         >
           <h1 className="home-title">
-            Hi, I’m{' '}
+            Hi, I'm{' '}
             <motion.span
               animate={{ backgroundPositionX: ['0%', '200%'] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
@@ -115,6 +117,33 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* 🚀 Hero CTA Buttons */}
+          <motion.div
+            className="hero-cta-btns"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+          >
+            <Link to="/projects">
+              <motion.button
+                className="cta-primary"
+                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0,200,255,0.4)' }}
+                whileTap={{ scale: 0.96 }}
+              >
+                View My Work →
+              </motion.button>
+            </Link>
+            <a href="/resume.pdf" download="Sachin_K_Resume.pdf">
+              <motion.button
+                className="cta-secondary"
+                whileHover={{ scale: 1.05, borderColor: 'var(--accent)', color: 'var(--accent)' }}
+                whileTap={{ scale: 0.96 }}
+              >
+                ⬇ Download Resume
+              </motion.button>
+            </a>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -129,15 +158,17 @@ export default function Home() {
               title={item.title}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.15, rotate: 5 }}
+              className="quick-link-item"
+              whileHover={{ scale: 1.12, y: -4 }}
               transition={{ type: 'spring', stiffness: 250 }}
             >
               <motion.img
                 src={item.img}
                 alt={item.title}
-                whileHover={{ filter: 'drop-shadow(0 0 15px var(--accent)) brightness(1.2)' }}
+                whileHover={{ filter: 'drop-shadow(0 0 12px var(--accent)) brightness(1.2)' }}
                 className="quick-link-img"
               />
+              <span className="quick-link-label">{item.title}</span>
             </motion.a>
           ))}
         </div>

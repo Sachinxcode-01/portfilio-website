@@ -1,98 +1,147 @@
-:root {
-  --accent: #00b4ff;
-  --accent-2: #00ffe0;
-  --bg-dark: #0d0d0d;
-  --card-bg: rgba(255, 255, 255, 0.04);
-  --text-light: rgba(255, 255, 255, 0.85);
-  --text-muted: rgba(255, 255, 255, 0.7);
-}
-
-.about-container {
+/* === About Page === */
+.about-section {
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at top, var(--bg-dark), #000);
-  color: white;
-  padding: 3rem 1rem;
-  z-index: 1;
+  justify-content: flex-start;
+  background: transparent;
+  color: var(--text);
+  padding: 4rem 1.5rem;
 }
 
 .about-card {
   width: 100%;
   max-width: 1100px;
-  text-align: left;
-  margin-top: 1rem;
-  line-height: 1.8;
-  background: var(--card-bg);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
   padding: 3rem 3.5rem;
-  border-radius: 18px;
-  box-shadow: 0 0 25px rgba(0, 255, 200, 0.08);
-  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 0 60px rgba(0,200,255,0.04);
+  backdrop-filter: blur(12px);
 }
 
-.about-header {
-  font-size: 1.9rem;
-  margin-bottom: 1.2rem;
+/* Section Headings */
+.about-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.4rem;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
+  display: inline-block;
+  letter-spacing: -0.3px;
 }
 
-.about-text {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  margin-bottom: 1rem;
-}
-
-.education-section {
-  margin-top: 3rem;
-}
-
-.education-header {
+.about-sub-heading {
   font-size: 1.6rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
+  display: inline-block;
 }
 
-.education-cards {
+/* Bio Text */
+.about-bio {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.85;
+  max-width: 900px;
+}
+
+.about-bio strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Education */
+.edu-section {
+  margin-top: 3rem;
+}
+
+.edu-cards {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
 .edu-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 14px;
-  padding: 1.5rem 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 15px rgba(0, 255, 200, 0.05);
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.edu-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 3px;
+}
+
+.edu-card:hover {
+  border-color: rgba(0,200,255,0.2);
+  background: rgba(0,200,255,0.03);
+  box-shadow: 0 0 30px rgba(0,200,255,0.08);
+  transform: translateY(-2px);
 }
 
 .edu-icon {
-  color: var(--accent);
   flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0,200,255,0.12), rgba(124,58,237,0.12));
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.edu-title {
+.edu-info h4 {
   color: var(--accent);
-  margin-bottom: 0.4rem;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
 }
 
-.edu-institute {
-  color: var(--text-light);
-  margin-bottom: 0.2rem;
+.edu-info .edu-school {
+  color: var(--text);
+  font-size: 0.95rem;
+  margin: 0 0 0.2rem;
+  font-weight: 500;
 }
 
-.edu-details {
-  color: var(--text-muted);
+.edu-info .edu-meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .edu-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }

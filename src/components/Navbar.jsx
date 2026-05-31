@@ -14,6 +14,34 @@ const links = [
   { label: "Contact", to: "/contact" },
 ];
 
+// Staggered animations for mobile menu links
+const menuVariants = {
+  hidden: { opacity: 0, height: 0 },
+  show: {
+    opacity: 1,
+    height: "100vh",
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.05
+    }
+  },
+  exit: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      staggerChildren: 0.03,
+      staggerDirection: -1,
+      when: "afterChildren"
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: -20 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 150, damping: 15 } },
+  exit: { opacity: 0, y: -10 }
+};
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showButton, setShowButton] = useState(false);
@@ -157,31 +185,32 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && showButton && (
           <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
+            variants={menuVariants}
+            initial="hidden"
+            animate="show"
+            exit="exit"
             style={{
               position: "fixed",
               top: 0,
               left: 0,
               width: "100%",
-              height: "100vh",
-              background: "rgba(0,0,0,0.95)",
-              backdropFilter: "blur(12px)",
+              background: "rgba(3,3,6,0.98)",
+              backdropFilter: "blur(16px)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              paddingTop: "4rem",
+              paddingTop: "5rem",
               zIndex: 9999,
+              overflow: "hidden"
             }}
           >
             <button
               style={{
                 position: "absolute",
-                top: "1rem",
-                right: "1rem",
-                fontSize: "2rem",
-                color: "#fff",
+                top: "1.5rem",
+                right: "1.5rem",
+                fontSize: "2.2rem",
+                color: "#00ffc8",
                 background: "none",
                 border: "none",
                 cursor: "pointer",
@@ -192,22 +221,32 @@ export default function Navbar() {
             </button>
 
             {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                onClick={() => setIsOpen(false)}
-                style={{
-                  color: "#fff",
-                  textDecoration: "none",
-                  padding: "1rem 0",
-                  width: "100%",
-                  textAlign: "center",
-                  fontSize: 16,
-                  borderBottom: "1px solid rgba(255,255,255,0.05)",
-                }}
+              <motion.div 
+                key={l.to} 
+                variants={itemVariants}
+                style={{ width: "100%" }}
               >
-                {l.label}
-              </NavLink>
+                <NavLink
+                  to={l.to}
+                  onClick={() => setIsOpen(false)}
+                  style={{
+                    display: "block",
+                    color: "#fff",
+                    textDecoration: "none",
+                    padding: "1.2rem 0",
+                    width: "100%",
+                    textAlign: "center",
+                    fontSize: 18,
+                    fontWeight: 600,
+                    letterSpacing: "0.5px",
+                    borderBottom: "1px solid rgba(255,255,255,0.03)",
+                    transition: "color 0.2s ease"
+                  }}
+                  className={({ isActive }) => isActive ? "text-cyan-400" : ""}
+                >
+                  {l.label}
+                </NavLink>
+              </motion.div>
             ))}
           </motion.div>
         )}

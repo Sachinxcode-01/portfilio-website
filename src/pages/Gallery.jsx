@@ -35,12 +35,28 @@ const IMAGES = {
   achievements: [
     {
       id: 1,
-      caption: "Solved 05 LeetCode questions 🏆!",
-      photos: ["/gallery/leetcode.png"],
+      isSpecialArcade: true,
+      caption: "🏆 Google Cloud Arcade Program - 6 Badges Earned! Representing a comprehensive journey of hands-on cloud labs, virtual infrastructure engineering, and server architecture games. ⚡☁️",
+      photos: [
+        "/gallery/Adventure.png",
+        "/gallery/BaseCamp.png",
+        "/gallery/SkillUpSummer.png",
+        "/gallery/Trail.png",
+        "/gallery/Voyage.png",
+        "/gallery/WorkMeetsPlayExpressiveEffciency.png"
+      ],
+      badgeNames: [
+        "Adventure",
+        "Base Camp",
+        "Skill Up Summer",
+        "Trail",
+        "Voyage",
+        "Work Meets Play: Expressive Efficiency"
+      ]
     },
     {
       id: 2,
-      caption: "Participated in Hackathon 2026",
+      caption: "🚀 Hackathon 2026 — Designed, built, and presented innovative software prototypes, working collaboratively under high-intensity engineering deadlines. 👥🔥",
       photos: ["/gallery/hackathon.jpg"],
     },
   ],
@@ -146,22 +162,115 @@ export default function Gallery() {
               whileHover={{ y: -4 }}
             >
               <p className="caption">{post.caption}</p>
-              <div
-                className={`photo-grid ${post.photos.length > 1 ? "multi" : "single"
-                  }`}
-              >
-                {post.photos.map((src, i) => (
-                  <motion.div
-                    key={i}
-                    className="photo-item"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 250 }}
-                    onClick={() => openZoom(post, i)}
-                  >
-                    <img src={src} alt="gallery" />
-                  </motion.div>
-                ))}
-              </div>
+              {post.isSpecialArcade ? (
+                <div 
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
+                    gap: "24px",
+                    marginTop: "20px",
+                    background: "rgba(255,255,255,0.015)",
+                    border: "1px solid rgba(255,255,255,0.04)",
+                    borderRadius: "16px",
+                    padding: "28px",
+                    boxShadow: "inset 0 0 25px rgba(0, 255, 200, 0.03), 0 10px 40px rgba(0,0,0,0.6)",
+                    backdropFilter: "blur(4px)"
+                  }}
+                >
+                  {post.photos.map((src, i) => (
+                    <motion.div
+                      key={i}
+                      onClick={() => openZoom(post, i)}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        cursor: "pointer",
+                        position: "relative"
+                      }}
+                      animate={{
+                        y: [0, -8, 0]
+                      }}
+                      transition={{
+                        duration: 3 + (i % 3) * 0.45,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      whileHover={{
+                        scale: 1.12,
+                        filter: "drop-shadow(0 0 15px rgba(0, 255, 200, 0.4))"
+                      }}
+                    >
+                      {/* Slow glowing halo rings */}
+                      <motion.div 
+                        animate={{
+                          scale: [1, 1.05, 1],
+                          opacity: [0.25, 0.6, 0.25]
+                        }}
+                        transition={{
+                          duration: 4.5 + (i % 2) * 1.2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        style={{
+                          position: "absolute",
+                          width: "82px",
+                          height: "82px",
+                          borderRadius: "50%",
+                          border: "1.5px solid rgba(0, 255, 200, 0.4)",
+                          zIndex: 0,
+                          boxShadow: "0 0 10px rgba(0, 255, 200, 0.2)"
+                        }}
+                      />
+                      
+                      <img 
+                        src={src} 
+                        alt={post.badgeNames[i]} 
+                        style={{
+                          width: "74px",
+                          height: "74px",
+                          objectFit: "contain",
+                          filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.4))",
+                          zIndex: 1,
+                          position: "relative",
+                          marginBottom: "10px"
+                        }}
+                      />
+                      <span 
+                        style={{
+                          color: "#9aa0a6",
+                          fontSize: "11px",
+                          textAlign: "center",
+                          fontWeight: 600,
+                          zIndex: 1,
+                          lineHeight: 1.25,
+                          maxWidth: "120px",
+                          fontFamily: "monospace"
+                        }}
+                      >
+                        {post.badgeNames[i]}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className={`photo-grid ${post.photos.length > 1 ? "multi" : "single"
+                    }`}
+                >
+                  {post.photos.map((src, i) => (
+                    <motion.div
+                      key={i}
+                      className="photo-item"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 250 }}
+                      onClick={() => openZoom(post, i)}
+                    >
+                      <img src={src} alt="gallery" />
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </motion.div>
           ))}
         </motion.div>

@@ -69,7 +69,7 @@ export default function Contact() {
 
   const quickLinks = [
     { img: githubLogo, title: "GitHub", link: "https://github.com/Sachinxcode-01" },
-    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/sachin-k-520a67392?" },
+    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/sachin-k-5b6689322" },
     { img: gmailLogo, title: "Email", link: "mailto:saxhin0708@gmail.com" },
     { img: whatsappLogo, title: "WhatsApp", link: "https://wa.me/+919880762623" },
     { img: instagramLogo, title: "Instagram", link: "https://www.instagram.com/ohh_itz_sachin_?igsh=eWRkeDBmdzc3MzBl/" },
@@ -104,8 +104,8 @@ export default function Contact() {
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="social-link"
-            whileHover={{ scale: 1.15, rotate: 5 }}
+            className="social-link-item"
+            whileHover={{ scale: 1.1, y: -4 }}
             transition={{ type: "spring", stiffness: 250 }}
           >
             <motion.img
@@ -119,6 +119,7 @@ export default function Contact() {
                 ease: "easeInOut",
               }}
             />
+            <span className="social-link-label">{item.title}</span>
           </motion.a>
         ))}
       </motion.div>

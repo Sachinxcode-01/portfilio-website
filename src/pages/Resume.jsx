@@ -10,7 +10,9 @@ export default function Resume() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         style={{
-          background: "#0b0b0b",
+          background: "rgba(255, 255, 255, 0.02)",
+          backdropFilter: "blur(12px)",
+          border: "1px solid rgba(255, 255, 255, 0.06)",
           borderRadius: 16,
           padding: "40px 30px",
           color: "#e5e5e5",
@@ -69,7 +71,8 @@ export default function Resume() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             style={{
-              background: "linear-gradient(135deg, #00b4ff44, #0b0b0b)",
+              background: "linear-gradient(135deg, rgba(0, 180, 255, 0.15), rgba(11, 11, 11, 0.4))",
+              backdropFilter: "blur(8px)",
               borderRadius: 12,
               padding: "14px 20px",
               border: "1px solid rgba(255,255,255,0.1)",
@@ -194,7 +197,7 @@ export default function Resume() {
           {[
             { name: "🏆 LeetCode", link: "https://leetcode.com/u/Sachin_x_0708/" },
             { name: "💻 GitHub", link: "https://github.com/Sachinxcode-01" },
-            { name: "💼 LinkedIn", link: "https://www.linkedin.com/in/kunj-desai-07717b293/" },
+            { name: "💼 LinkedIn", link: "https://www.linkedin.com/in/sachin-k-5b6689322" },
           ].map((site) => (
             <motion.a
               key={site.name}
@@ -228,7 +231,7 @@ export default function Resume() {
         >
           <iframe
             src="/resume.pdf"
-            title="Kunj Desai Resume"
+            title="Sachin K Resume"
             style={{
               width: "100%",
               height: "650px",

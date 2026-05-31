@@ -57,7 +57,7 @@ Now open [http://localhost:3000](http://localhost:3000) in your browser 🚀
 If you’d like to collaborate or just say hi 👋, feel free to reach out!
 
 * 📧 **Email:** [saxhin0708@gmail.com](mailto:saxhin0708@gmail.com)
-* 💼 **LinkedIn:** [(https://www.linkedin.com/in/sachin-k-520a67392?)]((https://www.linkedin.com/in/sachin-k-520a67392?))
+* 💼 **LinkedIn:** [https://www.linkedin.com/in/sachin-k-5b6689322](https://www.linkedin.com/in/sachin-k-5b6689322)
 
 ---
 

@@ -57,7 +57,7 @@ export default function Certificates() {
 
   return (
     <section className="container" style={{ padding: "40px 0" }}>
-      <div className="card" style={{ background: "#111", borderRadius: 12, padding: 24 }}>
+      <div className="card" style={{ background: "rgba(255, 255, 255, 0.02)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.06)", borderRadius: 12, padding: 24 }}>
         <h2 style={{ fontSize: "1.8rem", color: "#fff", marginBottom: 4 }}>Certificates 🏅</h2>
         <p className="lead" style={{ color: "#aaa" }}>
           Explore my certifications — technical & others.
@@ -110,7 +110,9 @@ export default function Certificates() {
                   boxShadow: "0 0 15px rgba(0, 123, 255, 0.4)",
                 }}
                 style={{
-                  background: "#1a1a1a",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  backdropFilter: "blur(8px)",
+                  border: "1px solid rgba(255, 255, 255, 0.05)",
                   borderRadius: 12,
                   padding: 16,
                   color: "#fff",

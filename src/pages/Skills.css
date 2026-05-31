@@ -37,7 +37,9 @@
   height: 360px;           /* reduced height (change this number to your exact preference) */
   margin: 20px auto;       /* small vertical gap only */
   border-radius: 14px;
-  background: radial-gradient(circle at 50% 50%, #080808, #0f0f0f);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
   box-shadow: inset 0 0 40px rgba(0, 255, 255, 0.08);
   overflow: hidden;
 }
@@ -95,8 +97,9 @@
 }
 
 .skill-box {
-  background: linear-gradient(145deg, #080808 0%, #0f0f0f 100%);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(0, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
   border-radius: 12px;
   padding: 18px 22px;
   width: 300px;

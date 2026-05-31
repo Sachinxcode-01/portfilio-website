@@ -1,7 +1,4 @@
-:root {
-  --accent: #00b4ff;
-  --accent-2: #00ffe0;
-}
+/* Colors come from index.css :root — no overrides here */
 
 .contact-section {
   min-height: 100vh;
@@ -10,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: radial-gradient(circle at 25% 25%, rgba(0,255,200,0.08), transparent 80%);
+  background: transparent;
   color: #fff;
   padding: 2rem 1.5rem 4rem;
   text-align: center;
@@ -21,6 +18,7 @@
   margin: 1.5rem 0 0.5rem;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -45,14 +43,44 @@
   display: inline-block;
 }
 
+/* Social link wrapper with label */
+.social-link-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.social-link-label {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.social-link-item:hover .social-link-label {
+  color: var(--accent);
+}
+
 .social-icon {
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--accent);
-  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(0,200,255,0.2);
+  background: rgba(255,255,255,0.04);
   padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 16px var(--accent-glow);
+  transform: translateY(-4px);
 }
 
 .contact-form {
@@ -65,14 +93,29 @@
 
 .contact-form input,
 .contact-form textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  outline: none;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
   font-size: 1rem;
+  font-family: inherit;
   resize: none;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(0,200,255,0.04);
+  box-shadow: 0 0 0 3px var(--accent-glow), 0 0 20px rgba(0,200,255,0.1);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--muted);
 }
 
 .contact-btn {

@@ -1,5 +1,5 @@
 .gallery-container {
-  background: #0b0b0b; /* Aesthetic black theme */
+  background: transparent;
   min-height: 100vh;
   padding: 5px 20px;
   color: #f0f0f0;
@@ -40,9 +40,9 @@
 
 .tab.active,
 .tab:hover {
-  background: #1f1f1f;
+  background: rgba(255,255,255,0.06);
   color: #fff;
-  border-color: #666;
+  border-color: rgba(0,200,255,0.4);
 }
 
 .post-feed {
@@ -54,10 +54,11 @@
 }
 
 .post-card {
-  background: #121212;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(0,200,255,0.04);
   transition: all 0.3s ease;
 }
 

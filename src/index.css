@@ -1,24 +1,96 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* ============================================================
+   DESIGN SYSTEM — Single Source of Truth for all colors
+   ============================================================ */
 :root{
-  --bg:#050509;
-  --card:#0f1114;
-  --muted:#9aa0a6;
-  --accent:#7c3aed;
-  --accent-2:#070c38;
+  --bg: #05050d;
+  --card: #0d0f18;
+  --muted: #8a92a6;
+  --accent: #00c8ff;        /* Primary: bright cyan */
+  --accent-2: #7c3aed;      /* Secondary: violet */
+  --accent-glow: rgba(0, 200, 255, 0.18);
+  --accent-2-glow: rgba(124, 58, 237, 0.15);
   --glass: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.06);
+  --text: #e6eef8;
+  --text-muted: rgba(255,255,255,0.65);
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 *{box-sizing:border-box}
 html,body,#root{height:100%}
+/* Animated star background */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.3); }
+}
+@keyframes drift {
+  0% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-12px) translateX(6px); }
+  66% { transform: translateY(6px) translateX(-8px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 body{
   margin:0;
-  background: radial-gradient(800px 500px at 10% 10%, rgba(124,58,237,0.08), transparent 10%),
-              radial-gradient(700px 400px at 90% 90%, rgba(255,92,161,0.04), transparent 10%),
-              var(--bg);
-  color:#e6eef8;
+  background:
+    radial-gradient(ellipse 900px 600px at 15% 20%, rgba(0,200,255,0.05), transparent 70%),
+    radial-gradient(ellipse 700px 500px at 85% 80%, rgba(124,58,237,0.08), transparent 70%),
+    radial-gradient(ellipse 500px 400px at 50% 50%, rgba(0,200,255,0.03), transparent 70%),
+    var(--bg);
+  color: var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.5;
   overflow-y:scroll;
+  overflow-x: hidden;
+}
+
+/* Floating particle stars */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+body::before {
+  width: 3px; height: 3px;
+  background: var(--accent);
+  box-shadow:
+    120px 200px 0 var(--accent),
+    350px 80px 0 rgba(124,58,237,0.6),
+    600px 350px 0 var(--accent),
+    900px 150px 0 rgba(124,58,237,0.5),
+    1200px 500px 0 var(--accent),
+    200px 600px 0 rgba(124,58,237,0.4),
+    750px 700px 0 var(--accent),
+    1100px 300px 0 rgba(124,58,237,0.6),
+    450px 450px 0 var(--accent),
+    1350px 620px 0 rgba(124,58,237,0.3);
+  animation: twinkle 4s ease-in-out infinite;
+  opacity: 0.3;
+}
+body::after {
+  width: 2px; height: 2px;
+  background: rgba(124,58,237,0.7);
+  box-shadow:
+    80px 400px 0 var(--accent),
+    300px 300px 0 rgba(124,58,237,0.5),
+    550px 180px 0 var(--accent),
+    820px 520px 0 rgba(124,58,237,0.6),
+    1050px 90px 0 var(--accent),
+    1300px 400px 0 rgba(124,58,237,0.4),
+    170px 750px 0 var(--accent),
+    680px 600px 0 rgba(124,58,237,0.5);
+  animation: twinkle 6s ease-in-out 2s infinite;
+  opacity: 0.2;
 }
 .app{min-height:100vh;display:flex;flex-direction:column}
 .footer{text-align:center;padding:20px;color:var(--muted);font-size:13px}
@@ -115,58 +187,62 @@ body{
   .skills-stage{height:360px}
 }
 
-/* 🌙 Contact Section Styling */
+/* 🌙 Contact Section Styling — unified with design system */
 .contact-input {
   width: 100%;
-  background: #111;
-  color: #ddd;
-  border: 1px solid #222;
-  border-radius: 8px;
-  padding: 10px 12px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
   margin-top: 8px;
   font-size: 15px;
+  font-family: inherit;
   transition: all 0.3s ease;
 }
 
 .contact-input:focus {
   outline: none;
-  border-color: #0077ff; /* dark blue accent instead of pink */
-  background: #151515;
-  box-shadow: 0 0 5px #003366;
+  border-color: var(--accent);
+  background: rgba(0,200,255,0.04);
+  box-shadow: 0 0 0 3px var(--accent-glow), 0 0 20px rgba(0,200,255,0.1);
 }
 
 .contact-input::placeholder {
-  color: #666;
+  color: var(--muted);
 }
 
 form h3 {
-  color: #eee;
+  color: var(--text);
   font-weight: 600;
   margin-bottom: 12px;
 }
 
 .btn {
-  background: linear-gradient(90deg, #003366, #004c99);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   color: #fff;
   border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: inherit;
   transition: all 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
 .btn:hover {
-  background: linear-gradient(90deg, #004c99, #0066cc);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,200,255,0.25);
 }
 
 .card {
-  background: #0a0a0a;
+  background: rgba(255,255,255,0.02);
   border-radius: 16px;
   padding: 25px 30px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-  color: #ddd;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
 .hero-hero {
@@ -175,7 +251,6 @@ form h3 {
   align-items: center;
   justify-content: space-around;
   padding: 40px 30px;
-  background: radial-gradient(circle at 20% 20%, #0b0b0b, #050505);
 }
 
 .hero-photo img {
@@ -184,17 +259,17 @@ form h3 {
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--accent);
-  box-shadow: 0 0 30px rgba(0, 100, 255, 0.3);
+  box-shadow: 0 0 40px var(--accent-glow);
 }
 
 .hero-intro {
   max-width: 500px;
-  color: #ddd;
+  color: var(--text);
 }
 
 .small-card {
-  background: #0d0d0d;
-  border: 1px solid rgba(0, 120, 255, 0.1);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
   transition: all 0.3s ease;
 }
 
@@ -207,23 +282,17 @@ form h3 {
 }
 
 .emoji-btn {
-  background: #0d0d0d;
-  border: 1px solid rgba(0, 120, 255, 0.2);
-  color: #ddd;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  color: var(--text);
   transition: all 0.3s ease;
   border-radius: 8px;
 }
 
 .emoji-btn:hover {
-  background: linear-gradient(90deg, #003366, #004c99);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   color: #fff;
   transform: translateY(-2px);
-}
-
-/* Accent variables */
-:root {
-  --accent: #004c99;
-  --accent-2: #0077ff;
 }
 
 .certs-grid {
@@ -251,7 +320,7 @@ form h3 {
 
 /* 🌙 Blog Section - Dark Blue Theme (No Vote Highlight) */
 .blog-section {
-  background: radial-gradient(circle at top left, #0b0e14, #000);
+  background: transparent;
   color: #e4e7ec;
   padding: 80px 10%;
   min-height: 100vh;
@@ -279,8 +348,9 @@ form h3 {
 }
 
 .blog-post {
-  background: #0d111a;
-  border: 1px solid rgba(80, 100, 160, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 25px;
   color: #cfd3e0;
@@ -289,8 +359,10 @@ form h3 {
 
 .blog-post:hover {
   border-color: #4c7bff;
-  background: rgba(20, 25, 40, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
   transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(76, 123, 255, 0.15);
 }
 
 .post-header {

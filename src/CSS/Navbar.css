@@ -1,7 +1,4 @@
-:root {
-  --accent: #00b4ff;
-  --muted: #aaa;
-}
+/* Colors come from index.css :root — no overrides here */
 
 /* --- Navbar Container --- */
 .nav {
@@ -33,13 +30,16 @@
 
 .nav-name h1 {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 800;
   color: #fff;
+  letter-spacing: 0.3px;
 }
 
 .nav-tagline {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
+  letter-spacing: 0.5px;
 }
 
 /* --- Navigation Links --- */
@@ -84,7 +84,7 @@
   left: 0;
   width: 100%;
   height: 100vh;   /* cover entire viewport */
-  background: rgba(0,0,0,0.95);
+  background: rgba(10, 10, 10, 0.75);
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
