@@ -32,13 +32,20 @@ export function DottedSurface({ className, ...props }) {
     const scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0xffffff, 2000, 10000);
 
+    const isMobile = window.innerWidth < 768;
+
     const camera = new THREE.PerspectiveCamera(
       60,
       window.innerWidth / window.innerHeight,
       1,
       10000,
     );
-    camera.position.set(0, 355, 1220);
+    if (isMobile) {
+      // Pull back camera slightly on mobile to capture the wave width-wise beautifully
+      camera.position.set(0, 430, 1420);
+    } else {
+      camera.position.set(0, 355, 1220);
+    }
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -84,10 +91,10 @@ export function DottedSurface({ className, ...props }) {
     );
 
     const material = new THREE.PointsMaterial({
-      size: 7,
+      size: isMobile ? 4.5 : 7.0, // smaller dot particle size on mobile for fine-grained elegance
       vertexColors: true,
       transparent: true,
-      opacity: 0.55,
+      opacity: isMobile ? 0.65 : 0.55, // slightly more visible opacity on mobile
       sizeAttenuation: true,
     });
 
@@ -120,8 +127,13 @@ export function DottedSurface({ className, ...props }) {
       count += 0.1;
     };
 
-    // ── Resize handler ────────────────────────────────────────────────────────
+    let lastWidth = window.innerWidth;
+
     const handleResize = () => {
+      // Skip if width is identical (prevents stuttering/flicker when mobile address bar hides/shows)
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
