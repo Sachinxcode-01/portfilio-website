@@ -87,6 +87,7 @@ export default function Projects() {
                   <img
                     src={p.ss}
                     alt={p.title}
+                    loading="lazy"
                     style={{
                       width: '100%',
                       height: '200px',

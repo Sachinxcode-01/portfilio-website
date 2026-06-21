@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
-
-
-import githubLogo from "../../public/github.png";
-import linkedinLogo from "../../public/linkedin.png";
-import gmailLogo from "../../public/gmail.png";
-import whatsappLogo from "../../public/whatsapp.png";
-import instagramLogo from "../../public/insta.png";
-import facebookLogo from "../../public/facebook.png";
+import { SOCIAL_LINKS } from '../constants/socialLinks';
 
 import "../CSS/Contact.css"
 import '../index.css' 
@@ -21,6 +14,7 @@ export default function Contact() {
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -29,18 +23,28 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!form.name || !form.contact || !form.subject || !form.message) {
-      setStatus("⚠️ Please fill in all fields.");
+    // Per-field validation
+    const newErrors = {};
+    if (!form.name.trim()) newErrors.name = "Name is required.";
+    if (!form.contact.trim()) {
+      newErrors.contact = "Email or phone is required.";
+    } else {
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      const isEmail = emailPattern.test(form.contact);
+      if (!isEmail && isNaN(form.contact)) {
+        newErrors.contact = "Please enter a valid email or phone number.";
+      }
+    }
+    if (!form.subject.trim()) newErrors.subject = "Subject is required.";
+    if (!form.message.trim()) newErrors.message = "Message is required.";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setStatus("");
       return;
     }
 
-    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-    const isEmail = emailPattern.test(form.contact);
-    if (!isEmail && isNaN(form.contact)) {
-      setStatus("⚠️ Please enter a valid email or phone number.");
-      return;
-    }
-
+    setErrors({});
     setStatus("Sending...");
 
     emailjs
@@ -67,14 +71,7 @@ export default function Contact() {
       );
   };
 
-  const quickLinks = [
-    { img: githubLogo, title: "GitHub", link: "https://github.com/Sachinxcode-01" },
-    { img: linkedinLogo, title: "LinkedIn", link: "https://www.linkedin.com/in/sachin-k-5b6689322" },
-    { img: gmailLogo, title: "Email", link: "mailto:saxhin0708@gmail.com" },
-    { img: whatsappLogo, title: "WhatsApp", link: "https://wa.me/+919880762623" },
-    { img: instagramLogo, title: "Instagram", link: "https://www.instagram.com/ohh_itz_sachin_?igsh=eWRkeDBmdzc3MzBl/" },
-    { img: facebookLogo, title: "Facebook", link: "https://www.facebook.com/_ohh_itz_sachin_" },
-  ];
+  const quickLinks = SOCIAL_LINKS;
 
   return (
     <section className="contact-section">
@@ -132,10 +129,14 @@ export default function Contact() {
         transition={{ delay: 0.4, duration: 0.9 }}
         className="contact-form"
       >
-        <input type="text" name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required />
-        <input type="text" name="contact" placeholder="Your Email or Phone" value={form.contact} onChange={handleChange} required />
-        <input type="text" name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} required />
-        <textarea name="message" placeholder="Your Message..." value={form.message} onChange={handleChange} rows="5" required />
+        <input type="text" name="name" placeholder="Your Name" value={form.name} onChange={handleChange} required aria-label="Your name" />
+        {errors.name && <span className="field-error">{errors.name}</span>}
+        <input type="text" name="contact" placeholder="Your Email or Phone" value={form.contact} onChange={handleChange} required aria-label="Your email or phone number" />
+        {errors.contact && <span className="field-error">{errors.contact}</span>}
+        <input type="text" name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} required aria-label="Subject" />
+        {errors.subject && <span className="field-error">{errors.subject}</span>}
+        <textarea name="message" placeholder="Your Message..." value={form.message} onChange={handleChange} rows="5" required aria-label="Your message" />
+        {errors.message && <span className="field-error">{errors.message}</span>}
         <motion.button type="submit" className="contact-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           🚀 Send Message
         </motion.button>

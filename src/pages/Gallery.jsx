@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import "../CSS/Gallery.css";
@@ -103,18 +103,34 @@ export default function Gallery() {
 
   const closeZoom = () => setZoom({ img: null, post: null, index: 0 });
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     if (!zoom.post) return;
     const nextIndex = (zoom.index + 1) % zoom.post.photos.length;
-    setZoom({ ...zoom, img: zoom.post.photos[nextIndex], index: nextIndex });
-  };
+    setZoom((prev) => ({ ...prev, img: prev.post.photos[nextIndex], index: nextIndex }));
+  }, [zoom.post, zoom.index]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     if (!zoom.post) return;
     const prevIndex =
       (zoom.index - 1 + zoom.post.photos.length) % zoom.post.photos.length;
-    setZoom({ ...zoom, img: zoom.post.photos[prevIndex], index: prevIndex });
-  };
+    setZoom((prev) => ({ ...prev, img: prev.post.photos[prevIndex], index: prevIndex }));
+  }, [zoom.post, zoom.index]);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    if (!zoom.img) return;
+    const handleKey = (e) => {
+      if (e.key === 'Escape') closeZoom();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    };
+    document.addEventListener('keydown', handleKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      document.body.style.overflow = '';
+    };
+  }, [zoom.img, nextImage, prevImage]);
 
   return (
     <motion.section
@@ -226,6 +242,7 @@ export default function Gallery() {
                       <img 
                         src={src} 
                         alt={post.badgeNames[i]} 
+                        loading="lazy"
                         style={{
                           width: "74px",
                           height: "74px",
@@ -266,7 +283,7 @@ export default function Gallery() {
                       transition={{ type: "spring", stiffness: 250 }}
                       onClick={() => openZoom(post, i)}
                     >
-                      <img src={src} alt="gallery" />
+                      <img src={src} alt={`${post.caption} — photo ${i + 1}`} loading="lazy" />
                     </motion.div>
                   ))}
                 </div>
@@ -289,7 +306,7 @@ export default function Gallery() {
             <motion.img
               key={zoom.img}
               src={zoom.img}
-              alt="zoom"
+              alt="Zoomed gallery image"
               className="zoom-img"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -299,15 +316,15 @@ export default function Gallery() {
 
             {zoom.post?.photos.length > 1 && (
               <>
-                <button className="nav-btn left" onClick={prevImage}>
+                <button className="nav-btn left" onClick={prevImage} aria-label="Previous image">
                   <ChevronLeft size={32} />
                 </button>
-                <button className="nav-btn right" onClick={nextImage}>
+                <button className="nav-btn right" onClick={nextImage} aria-label="Next image">
                   <ChevronRight size={32} />
                 </button>
               </>
             )}
-            <button className="close-btn" onClick={closeZoom}>
+            <button className="close-btn" onClick={closeZoom} aria-label="Close zoomed image">
               <X size={28} />
             </button>
           </motion.div>

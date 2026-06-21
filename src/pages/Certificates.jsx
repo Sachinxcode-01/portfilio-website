@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ✅ Certificates data (added URLs for View button)
@@ -54,6 +54,22 @@ const CERTS = {
 export default function Certificates() {
   const [tab, setTab] = useState("tech");
   const [selectedCert, setSelectedCert] = useState(null);
+
+  // Close modal on Escape key
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') setSelectedCert(null);
+  }, []);
+
+  useEffect(() => {
+    if (selectedCert) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedCert, handleKeyDown]);
 
   return (
     <section className="container" style={{ padding: "40px 0" }}>
@@ -121,6 +137,7 @@ export default function Certificates() {
                 <img
                   src={c.img}
                   alt={c.title}
+                  loading="lazy"
                   style={{
                     width: "100%",
                     height: 160,
@@ -161,6 +178,9 @@ export default function Certificates() {
         {selectedCert && (
           <motion.div
             className="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Certificate: ${selectedCert.title}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

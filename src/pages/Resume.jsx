@@ -84,7 +84,7 @@ export default function Resume() {
             <strong style={{ color: "#00b4ff" }}>Professional Summary:</strong>
             <p style={{ marginTop: 6, color: "#ccc" }}>
               1st-year B.E Computer student experienced in Python, and computer vision.
-              Skilled in Python, Mangodb, Git, and GitHub. Passionate about
+              Skilled in Python, MongoDB, Git, and GitHub. Passionate about
               building impactful AI systems and seeking opportunities to contribute to
               real-world AI projects.
             </p>
@@ -135,10 +135,10 @@ export default function Resume() {
         >
           <h4 style={{ fontSize: 20, color: "#00b4ff", marginBottom: 12 }}>💼 Projects</h4>
           <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 1.8 }}>
-            <li>1️⃣Simple Calculator</li>
-            <li>2️⃣ Expense Tracker Web App</li>
-            <li>3️⃣ Frontend School Website</li>
-            
+            <li>1️⃣ Simple Calculator (Python) — Advanced expression parser with CLI + GUI</li>
+            <li>2️⃣ Bright Horizon School FullStack Website — Admin dashboards, admission controls</li>
+            <li>3️⃣ AI Face Attendance System — Contactless attendance with &gt;99% accuracy</li>
+            <li>4️⃣ Portfolio Website — React + Framer Motion with physics-based interactions</li>
           </ul>
         </motion.div>
 

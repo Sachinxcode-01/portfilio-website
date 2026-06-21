@@ -121,6 +121,7 @@ export default function Blog() {
                 disabled={!!p.userVote}
                 whileTap={{ scale: 0.85 }}
                 whileHover={{ scale: 1.15 }}
+                aria-label={`Agree with "${p.title}" (${p.agree} votes)`}
                 className={`vote-btn-circle agree ${
                   p.userVote === "agree" ? "active" : ""
                 }`}
@@ -141,6 +142,7 @@ export default function Blog() {
                 disabled={!!p.userVote}
                 whileTap={{ scale: 0.85 }}
                 whileHover={{ scale: 1.15 }}
+                aria-label={`Disagree with "${p.title}" (${p.disagree} votes)`}
                 className={`vote-btn-circle disagree ${
                   p.userVote === "disagree" ? "active" : ""
                 }`}

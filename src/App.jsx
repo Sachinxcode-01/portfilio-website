@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
+import ScrollToTop from './components/ScrollToTop'
 import { DottedSurface } from '@/components/ui/dotted-surface'
 
 // 🚀 Lazy loaded pages
@@ -93,15 +94,20 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <div className="app">
+      {/* Skip to content link for keyboard accessibility */}
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
       {/* 🌊 Global animated dot background — same on every page */}
       <DottedSurface />
       <Navbar />
-      <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <main id="main-content" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <AnimatedRoutes />
       </main>
       <footer className="footer">
         © {new Date().getFullYear()} Sachin K — Built with React ⚡
       </footer>
+      <ScrollToTop />
       <SpeedInsights />
     </div>
   )

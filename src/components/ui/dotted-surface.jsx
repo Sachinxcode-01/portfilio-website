@@ -103,9 +103,15 @@ export function DottedSurface({ className, ...props }) {
 
     let count = 0;
     let animationId;
+    let isPaused = false;
 
     // ── Animation loop ────────────────────────────────────────────────────────
     const animate = () => {
+      if (isPaused) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+
       animationId = requestAnimationFrame(animate);
 
       const posAttr = geometry.attributes.position;
@@ -127,6 +133,12 @@ export function DottedSurface({ className, ...props }) {
       count += 0.1;
     };
 
+    // Pause animation when tab is not visible (saves GPU/battery)
+    const handleVisibilityChange = () => {
+      isPaused = document.hidden;
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     let lastWidth = window.innerWidth;
 
     const handleResize = () => {
@@ -147,6 +159,7 @@ export function DottedSurface({ className, ...props }) {
     // ── Cleanup ───────────────────────────────────────────────────────────────
     return () => {
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
 
       if (sceneRef.current) {
         cancelAnimationFrame(sceneRef.current.animationId);

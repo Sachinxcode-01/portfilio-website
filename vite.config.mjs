@@ -15,4 +15,15 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'three': ['three'],
+          'd3': ['d3'],
+          'framer-motion': ['framer-motion'],
+        },
+      },
+    },
+  },
 })

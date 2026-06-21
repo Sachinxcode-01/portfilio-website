@@ -166,6 +166,7 @@ export default function Navbar() {
         {/* Hamburger */}
         {showButton && (
           <button
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             style={{
               background: "none",
               border: "none",
@@ -205,6 +206,7 @@ export default function Navbar() {
             }}
           >
             <button
+              aria-label="Close navigation menu"
               style={{
                 position: "absolute",
                 top: "1.5rem",
