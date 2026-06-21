@@ -13,10 +13,11 @@
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
   <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
+  <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" alt="Three.js" />
+  <img src="https://img.shields.io/badge/D3.js-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white" alt="D3.js" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62B" alt="Vite" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JS" />
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
-  <img src="https://img.shields.io/badge/GIT-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License" />
 </p>
 
@@ -24,147 +25,153 @@
 
 ## 📖 Overview
 
-Welcome to my personal, high-fidelity portfolio website. Designed as a dark luxury, state-of-the-art interactive playground, this site showcases my professional path, key engineering projects, academic background, and development competencies. Leveraging physics-based animations, hardware-accelerated WebGL environments, and fully responsive layouts, it represents the intersection of structural engineering and digital art.
+A high-fidelity personal portfolio website built with React, Three.js, and D3.js. Features a dark luxury aesthetic with physics-based animations, WebGL particle backgrounds, interactive skill graphs, and fully responsive layouts. Deployed on Vercel with continuous integration.
+
+**Live**: [sachinxcoder-chi.vercel.app](https://sachinxcoder-chi.vercel.app/)
 
 ---
 
 ## ✨ Key Features
 
-* 🌌 **Interactive WebGL Star & Wave Field**: A dynamic, fully-custom Three.js canvas renders a responsive dotted wave landscape in the background, responding in real-time to page navigations.
-* 🔮 **D3.js Force-Directed Skills Graph**: Under the `Skills` stage, nodes collide and stack organically using a full physics force-simulation with:
-  * 🧲 **Magnetic Mouse Follower**: Nodes gather and swarm dynamically toward your cursor inside the stage.
-  * 📱 **Mobile Tilt/Gyro Flow**: Mobile users can tilt their devices to let the skill nodes slide and roll fluidly like water in response to physical gravity.
-* 💎 **Glassmorphism Glass UI Theme**: All containers, project panels, form inputs, and certificates use transparent backdrop-blur filters, giving a cohesive floating luxury feel.
-* ⚡ **Staggered Spring Animations**: Page transitions, mobile menus, and layout items animate via smooth, hardware-accelerated Framer Motion spring vectors (`stiffness: 150`, `damping: 15`).
-* 📨 **Secure Functional Contact Channel**: Features a direct, verified contact form powered client-side by EmailJS with real-time UI loading and status validation states.
-* 🧩 **Modern Single-Page Navigation**: Implements seamless path-routing via React Router with lazy loading and an aesthetic neon load screen.
+| Feature | Description |
+|---------|-------------|
+| 🌌 **3D Wave Background** | Custom Three.js animated dotted wave surface across all pages, with auto-pause when tab is hidden to save GPU/battery |
+| 🔮 **Physics Skill Graph** | D3.js force simulation with draggable nodes, magnetic cursor attraction, and mobile gyroscope tilt support |
+| ✍️ **Letter-by-letter Animations** | Spring-physics text reveals, staggered card entrances, and wave-like social link animations |
+| 💎 **Glassmorphism UI** | Backdrop-blur glass cards, gradient accents, and floating particle stars |
+| 📨 **Contact Form** | EmailJS-powered with per-field validation and real-time status feedback |
+| ♿ **Accessibility** | Skip-to-content, aria-labels, keyboard navigation for modals, WCAG-compliant contrast |
+| ⚡ **Performance** | Code-split bundles (Three.js, D3, Framer Motion), lazy-loaded images, lazy-loaded routes |
+| 🔍 **SEO Ready** | Open Graph, Twitter Cards, meta descriptions, favicon, robots.txt |
+| 📱 **Fully Responsive** | Mobile-first design with adaptive layouts and hamburger navigation |
+| 🔝 **Scroll to Top** | Floating button appears after scrolling for quick navigation |
 
 ---
 
-## 🛠️ Tech Stack & Core Integrations
+## 🛠️ Tech Stack
 
-* **Core Engine**: `React.js v18` - Serves as the robust, modular component framework.
-* **Physics & WebGL Rendering**: 
-  * `D3.js` - Computes physical particle collisions and dynamic forces.
-  * `Three.js` - Coordinates WebGL 3D math and hardware-accelerated canvas structures.
-* **Styling & Fluid UI**:
-  * `Tailwind CSS v3` - Powers utilities and baseline system structures.
-  * `Custom CSS Modules` - Handles glassmorphic rules, customized scrollbars, and aesthetic layout variables.
-* **Animations**: `Framer Motion` - orchestrates spatial layouts, menu spring animations, and page entrances.
-* **Serverless Services**:
-  * `EmailJS` - Dispatches secure SMTP messages directly from frontend components.
-  * `Vercel` - Provides robust global hosting, continuous integration, and fast CDN pipelines.
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 18 + Vite 7 |
+| 3D/WebGL | Three.js |
+| Data Visualization | D3.js (force simulation) |
+| Animation | Framer Motion |
+| Styling | Tailwind CSS 3 + Custom CSS |
+| Theming | next-themes (dark mode) |
+| Icons | Lucide React + React Icons |
+| Contact | EmailJS |
+| Routing | React Router v6 |
+| Deployment | Vercel |
+| Linting | ESLint + Prettier |
 
 ---
 
-## 🗺️ Project Directory Map
+## 🗺️ Project Structure
 
 ```text
-.
-├── postcss.config.js         # PostCSS configurations for Tailwind
-├── tailwind.config.js        # Custom Tailwind spacing, variables, and themes
-├── vite.config.mjs           # Bundler config & path aliases
-├── package.json              # Main project dependencies & scripts
-├── index.html                # App entry document
-├── portfolio_banner.png      # Luxury visual repository banner
+├── index.html                # Entry HTML with SEO meta tags
+├── vite.config.mjs           # Vite config with path aliases & chunk splitting
+├── tailwind.config.js        # Tailwind theme extensions
+├── .eslintrc.cjs             # ESLint config
+├── .prettierrc               # Prettier config
 ├── public/
-│   ├── resume.pdf            # Professional Resume PDF
-│   └── gallery/              # Achievement & program badge assets
+│   ├── favicon.svg           # SVG favicon
+│   ├── robots.txt            # SEO robots file
+│   ├── resume.pdf            # Downloadable resume
+│   ├── certs/                # Certificate images
+│   └── gallery/              # Gallery & achievement images
 └── src/
-    ├── App.jsx               # Navigation router & global animated backdrop
-    ├── main.jsx              # React initialization & dark-mode theme wrapper
-    ├── index.css             # Main styling, custom stars, and global variables
-    ├── CSS/                  # Isolated page & navbar stylesheets
-    │   ├── About.css
-    │   ├── Certificates.css
-    │   ├── Contact.css
-    │   ├── Gallery.css
-    │   ├── Home.css
-    │   ├── Navbar.css
-    │   ├── Resume.css
-    │   ├── Skills.css
-    │   ├── blog.css
-    │   └── projects.css
-    ├── components/           # Reusable components
-    │   ├── Navbar.jsx
+    ├── App.jsx               # Router, page transitions, global layout
+    ├── main.jsx              # React entry + ThemeProvider
+    ├── index.css             # Design system variables & global styles
+    ├── constants/
+    │   └── socialLinks.js    # Shared social links data (DRY)
+    ├── components/
+    │   ├── Navbar.jsx        # Responsive navbar with animated underline
+    │   ├── ScrollToTop.jsx   # Floating scroll-to-top button
     │   └── ui/
-    │       └── dotted-surface.jsx  # Custom 3D WebGL background grid
-    ├── lib/                  # Utility classes
-    │   └── utils.js          # cn Tailwind merger helper
-    └── pages/                # High-fidelity layout pages
-        ├── About.jsx
-        ├── Blog.jsx
-        ├── Certificates.jsx
-        ├── Contact.jsx
-        ├── Gallery.jsx
-        ├── Home.jsx
-        ├── NotFound.jsx
-        ├── Projects.jsx
-        ├── Resume.jsx
-        └── Skills.jsx
+    │       └── dotted-surface.jsx  # Three.js animated background
+    ├── lib/
+    │   └── utils.js          # cn() Tailwind merge helper
+    ├── CSS/                   # Page-specific stylesheets
+    └── pages/
+        ├── Home.jsx          # Hero with letter animations & social wave
+        ├── Projects.jsx      # Project cards with tech tags
+        ├── Gallery.jsx       # Tabbed gallery with lightbox & keyboard nav
+        ├── Skills.jsx        # D3 force graph + categorized grid
+        ├── Certificates.jsx  # Certificate grid with modal preview
+        ├── Blog.jsx          # Blog posts with vote system
+        ├── Resume.jsx        # Inline resume + PDF viewer
+        ├── About.jsx         # Bio + education timeline
+        ├── Contact.jsx       # EmailJS form with field validation
+        └── NotFound.jsx      # 404 with navigation options
 ```
 
 ---
 
 ## ⚙️ Setup & Installation
 
-### Prerequisite Checklist
-* Make sure you have [Node.js](https://nodejs.org/) installed (v18.x or higher recommended).
-* A GitHub account and Git CLI configured.
+### Prerequisites
+- [Node.js](https://nodejs.org/) v18+ 
+- Git
 
-Follow these steps to run the portfolio website locally on your machine:
+### Steps
 
 ```bash
-# 1️⃣ Clone the repository
+# Clone the repository
 git clone https://github.com/Sachinxcode-01/portfilio-website.git
-
-# 2️⃣ Navigate into the project folder
 cd Sachinxcode
 
-# 3️⃣ Install modern dependencies
+# Install dependencies
 npm install
 
-# 4️⃣ Set up environment variables
-# Create a .env file in the root directory and add your EmailJS keys:
-# VITE_EMAILJS_SERVICE_ID=your_service_id
-# VITE_EMAILJS_TEMPLATE_ID=your_template_id
+# Create .env file with your EmailJS credentials
+# VITE_EMAILJS_SERVICE_ID=service_xxxxx
+# VITE_EMAILJS_TEMPLATE_ID=template_xxxxx
 # VITE_EMAILJS_PUBLIC_KEY=your_public_key
 
-# 5️⃣ Fire up the local Vite development server
+# Start development server
 npm run dev
 ```
 
-🚀 Open your browser and navigate to **[http://localhost:5173/](http://localhost:5173/)** to see the interactive environment in action!
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start Vite dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
 
 ---
 
-## 🗂️ Sections Walkthrough
+## 🚀 Deployment
 
-* **🏠 Hero Grid**: Welcomes users with an interactive, neon-styled layout featuring professional taglines, typing effects, profile image frames, and responsive quick-links.
-* **👨‍💻 About Block**: Contains bio blocks reflectingCSE learning directions and showcases details of current and completed academic courses.
-* **⚙️ Interactive Skills**: Houses the D3 physics node stage where visitors can drag nodes, tilt their mobile devices to feel gravity, or move their cursors to watch nodes follow the mouse organically.
-* **🚀 Project Grid**: Showcases major full-stack and machine learning software solutions with direct link options and animated indicator badges.
-* **🏅 Achievements Feed**: Houses high-resolution Google Cloud badges and hackathon prototypes in floating responsive carousels with zoom capabilities.
-* **📄 Integrated Resume**: Serves a fast inline preview of my CV with download integration directly to local filesystems.
-* **📝 Growth Blog**: Integrates interactive post items with thumbs-up and thumbs-down reaction mechanisms persisted across sessions.
-* **🤝 Contact Gate**: Provides inputs for name, contact points, and direct messaging with full UI feedback and validation.
+This project auto-deploys to **Vercel** on every push to `master`. The Vite build outputs optimized, code-split chunks:
+
+- `three` → separate chunk (~495KB gzipped: 125KB)
+- `framer-motion` → separate chunk (~109KB gzipped: 37KB)  
+- `d3` → separate chunk (~52KB gzipped: 18KB)
+- Main bundle → ~204KB (gzipped: 67KB)
 
 ---
 
-## 📬 Contact & Socials
+## 📬 Contact
 
-Let's collaborate, innovate, and build something incredible together:
-
-* 📧 **Primary Email**: [saxhin0708@gmail.com](mailto:saxhin0708@gmail.com)
-* 💼 **LinkedIn Profile**: [linkedin.com/in/sachin-k-5b6689322](https://www.linkedin.com/in/sachin-k-5b6689322)
-* 💻 **GitHub Hub**: [github.com/Sachinxcode-01](https://github.com/Sachinxcode-01)
-* 🚀 **Vercel Live URL**: [sachinxcoder-chi.vercel.app](https://sachinxcoder-chi.vercel.app/)
+| Platform | Link |
+|----------|------|
+| 📧 Email | [saxhin0708@gmail.com](mailto:saxhin0708@gmail.com) |
+| 💼 LinkedIn | [sachin-k-5b6689322](https://www.linkedin.com/in/sachin-k-5b6689322) |
+| 💻 GitHub | [Sachinxcode-01](https://github.com/Sachinxcode-01) |
+| 🌐 Portfolio | [sachinxcoder-chi.vercel.app](https://sachinxcoder-chi.vercel.app/) |
 
 ---
 
 ## 📄 License
 
-Distributed under the **MIT License**. Check out the `LICENSE` file for more details. Feel free to clone, build upon, or modify this template for your own works! ⭐
+Distributed under the **MIT License**. Feel free to clone, modify, and build upon this for your own portfolio.
 
 ---
 
