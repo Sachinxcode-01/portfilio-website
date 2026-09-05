@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import * as d3 from "d3";
 import GithubContributions from "../components/GithubContributions";
+import GoogleArcadeShowcase from "../components/GoogleArcadeShowcase";
 import "./Skills.css";
 
 const SKILLS = [
@@ -310,7 +311,10 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* GitHub Contributions Heatmap */}
+      {/* Google Cloud Arcade Facilitator & Cloud Skills */}
+      <GoogleArcadeShowcase />
+
+      {/* GitHub Contributions & Activity Suite */}
       <GithubContributions />
     </section>
   );
