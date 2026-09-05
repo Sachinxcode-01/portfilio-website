@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#0f172a"/>
+        <stop offset="50%" stop-color="#1e293b"/>
+        <stop offset="100%" stop-color="#334155"/>
+      </linearGradient>
+      <radialGradient id="glow" cx="85%" cy="15%" r="65%">
+        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+      </radialGradient>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    
+    <rect width="1280" height="720" fill="url(#bg)"/>
+    <rect width="1280" height="720" fill="url(#grid)"/>
+    <circle cx="1050" cy="160" r="380" fill="url(#glow)"/>
+    
+    <rect x="50" y="50" width="1180" height="620" rx="20" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+    
+    <circle cx="90" cy="95" r="7" fill="#ef4444" opacity="0.85"/>
+    <circle cx="115" cy="95" r="7" fill="#eab308" opacity="0.85"/>
+    <circle cx="140" cy="95" r="7" fill="#22c55e" opacity="0.85"/>
+    <line x1="50" y1="135" x2="1230" y2="135" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+    <text x="80" y="270" font-size="68" font-family="system-ui, -apple-system, sans-serif">⚖️</text>
+    <text x="180" y="260" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800" letter-spacing="-1">Grievance Redressal</text>
+    
+    <text x="80" y="360" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400">Civic Complaint Tracking & Resolution System with Role-Based Auth</text>
+
+    <text x="80" y="495" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" letter-spacing="2">KEY TECHNOLOGIES &amp; ARCHITECTURE</text>
+    
+      <g transform="translate(80, 540)">
+        <rect width="200" height="48" rx="10" fill="rgba(255,255,255,0.06)" stroke="#38bdf8" stroke-width="1.5" opacity="0.85"/>
+        <text x="100" y="30" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" text-anchor="middle">MERN Stack</text>
+      </g>
+    
+      <g transform="translate(300, 540)">
+        <rect width="200" height="48" rx="10" fill="rgba(255,255,255,0.06)" stroke="#38bdf8" stroke-width="1.5" opacity="0.85"/>
+        <text x="100" y="30" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" text-anchor="middle">Role Auth</text>
+      </g>
+    
+      <g transform="translate(520, 540)">
+        <rect width="200" height="48" rx="10" fill="rgba(255,255,255,0.06)" stroke="#38bdf8" stroke-width="1.5" opacity="0.85"/>
+        <text x="100" y="30" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" text-anchor="middle">Status Engine</text>
+      </g>
+    
+      <g transform="translate(740, 540)">
+        <rect width="200" height="48" rx="10" fill="rgba(255,255,255,0.06)" stroke="#38bdf8" stroke-width="1.5" opacity="0.85"/>
+        <text x="100" y="30" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" text-anchor="middle">REST APIs</text>
+      </g>
+    
+      <g transform="translate(960, 540)">
+        <rect width="200" height="48" rx="10" fill="rgba(255,255,255,0.06)" stroke="#38bdf8" stroke-width="1.5" opacity="0.85"/>
+        <text x="100" y="30" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" text-anchor="middle">Cloudinary</text>
+      </g>
+    
+  </svg>

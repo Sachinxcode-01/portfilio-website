@@ -83,7 +83,7 @@ export default function Home() {
             className="photo-frame"
           >
             <motion.img
-              src="/Sachinxcode-07.png"
+              src="/assets/images/profile/Sachinxcode-07.png"
               alt="Sachin K — Computer Science Engineer and Developer"
               loading="eager"
               initial={{ scale: 0.5, opacity: 0, rotate: -10 }}
@@ -217,7 +217,7 @@ export default function Home() {
                 View My Work →
               </motion.button>
             </Link>
-            <a href="/resume.pdf" download="Sachin_K_Resume.pdf">
+            <a href="/assets/docs/resume.pdf" download="Sachin_K_Resume.pdf">
               <motion.button
                 className="cta-secondary"
                 whileHover={{

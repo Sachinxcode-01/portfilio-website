@@ -8,13 +8,13 @@ const IMAGES = {
     {
       id: 1,
       caption: "✨ \"Lost in moments, found with friends 🤝💫\"",
-      photos: ["/gallery/gal1.jpg", "/gallery/gal2.jpg", "/gallery/gal6.jpg"],
+      photos: ["/assets/images/gallery/gal1.jpg", "/assets/images/gallery/gal2.jpg", "/assets/images/gallery/gal6.jpg"],
     },
     {
       id: 2,
       caption:
         "✨ Lost in my own little world 🌌💭",
-      photos: ["/gallery/gal3.jpg", "/gallery/gal4.jpg", "/gallery/gal7.jpg", "/gallery/gal8.jpg"],
+      photos: ["/assets/images/gallery/gal3.jpg", "/assets/images/gallery/gal4.jpg", "/assets/images/gallery/gal7.jpg", "/assets/images/gallery/gal8.jpg"],
     },
   ],
   projects: [
@@ -22,14 +22,14 @@ const IMAGES = {
       id: 1,
       caption:
         "🧮 Quick Math, Clean Code.",
-      photos: ["/gallery/cal1.png", "/gallery/cal.png"],
+      photos: ["/assets/images/gallery/cal1.png", "/assets/images/gallery/cal.png"],
     },
 
     {
       id: 1,
       caption:
         "📂 Portfolio - Smart - Portfolio",
-      photos: ["/gallery/web1.png", "/gallery/web2.png"],
+      photos: ["/assets/images/gallery/web1.png", "/assets/images/gallery/web2.png"],
     },
   ],
   achievements: [
@@ -38,12 +38,12 @@ const IMAGES = {
       isSpecialArcade: true,
       caption: "🏆 Google Cloud Arcade Program - 6 Badges Earned! Representing a comprehensive journey of hands-on cloud labs, virtual infrastructure engineering, and server architecture games. ⚡☁️",
       photos: [
-        "/gallery/Adventure.png",
-        "/gallery/BaseCamp.png",
-        "/gallery/SkillUpSummer.png",
-        "/gallery/Trail.png",
-        "/gallery/Voyage.png",
-        "/gallery/WorkMeetsPlayExpressiveEffciency.png"
+        "/assets/images/gallery/Adventure.png",
+        "/assets/images/gallery/BaseCamp.png",
+        "/assets/images/gallery/SkillUpSummer.png",
+        "/assets/images/gallery/Trail.png",
+        "/assets/images/gallery/Voyage.png",
+        "/assets/images/gallery/WorkMeetsPlayExpressiveEffciency.png"
       ],
       badgeNames: [
         "Adventure",
@@ -57,7 +57,7 @@ const IMAGES = {
     {
       id: 2,
       caption: "🚀 Hackathon 2026 — Designed, built, and presented innovative software prototypes, working collaboratively under high-intensity engineering deadlines. 👥🔥",
-      photos: ["/gallery/hackathon.jpg"],
+      photos: ["/assets/images/gallery/hackathon.jpg"],
     },
   ],
 };

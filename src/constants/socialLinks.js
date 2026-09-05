@@ -3,12 +3,12 @@
  * Used in Home, Contact, and anywhere social links are displayed.
  */
 
-import githubLogo from '/github.png'
-import linkedinLogo from '/linkedin.png'
-import gmailLogo from '/gmail.png'
-import whatsappLogo from '/whatsapp.png'
-import instagramLogo from '/insta.png'
-import facebookLogo from '/facebook.png'
+import githubLogo from '/assets/icons/social/github.png'
+import linkedinLogo from '/assets/icons/social/linkedin.png'
+import gmailLogo from '/assets/icons/social/gmail.png'
+import whatsappLogo from '/assets/icons/social/whatsapp.png'
+import instagramLogo from '/assets/icons/social/insta.png'
+import facebookLogo from '/assets/icons/social/facebook.png'
 
 export const SOCIAL_LINKS = [
   { img: githubLogo, title: 'GitHub', link: 'https://github.com/Sachinxcode-01' },
