@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
+import TiltCard from '../components/TiltCard'
 
 const PROJECTS = [
   {
@@ -61,14 +62,14 @@ export default function Projects() {
 
         <div className="projects-grid" style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
           {PROJECTS.map((p, idx) => (
-            <motion.div
+            <TiltCard
               key={idx}
               className="project-card"
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.4, delay: idx * 0.12 }}
-              whileHover={{ scale: 1.03 }}
               viewport={{ once: true }}
+              intensity={10}
               style={{
                 background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01))',
                 backdropFilter: 'blur(8px)',
@@ -169,7 +170,7 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </TiltCard>
           ))}
 
           {/* Premium "Next Innovation" Placeholder Card */}

@@ -83,7 +83,7 @@ export default function Home() {
             className="photo-frame"
           >
             <motion.img
-              src="/Sachinxcoder.jpg"
+              src="/Sachinxcode-07.png"
               alt="Sachin K — Computer Science Engineer and Developer"
               loading="eager"
               initial={{ scale: 0.5, opacity: 0, rotate: -10 }}

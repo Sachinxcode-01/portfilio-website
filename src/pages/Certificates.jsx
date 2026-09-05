@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import TiltCard from "../components/TiltCard";
 
 // ✅ Certificates data (added URLs for View button)
 const CERTS = {
@@ -114,17 +115,14 @@ export default function Certificates() {
         >
           <AnimatePresence mode="wait">
             {CERTS[tab].map((c, idx) => (
-              <motion.div
+              <TiltCard
                 key={c.title}
                 className="cert card"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                whileHover={{
-                  scale: 1.03,
-                  boxShadow: "0 0 15px rgba(0, 123, 255, 0.4)",
-                }}
+                intensity={10}
                 style={{
                   background: "rgba(255, 255, 255, 0.03)",
                   backdropFilter: "blur(8px)",
@@ -167,7 +165,7 @@ export default function Certificates() {
                     View
                   </button>
                 </div>
-              </motion.div>
+              </TiltCard>
             ))}
           </AnimatePresence>
         </div>
