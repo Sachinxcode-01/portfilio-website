@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import * as d3 from "d3";
+import GithubContributions from "../components/GithubContributions";
 import "./Skills.css";
 
 const SKILLS = [
@@ -308,6 +309,9 @@ export default function Skills() {
           </div>
         ))}
       </div>
+
+      {/* GitHub Contributions Heatmap */}
+      <GithubContributions />
     </section>
   );
 }
