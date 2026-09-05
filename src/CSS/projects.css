@@ -107,3 +107,31 @@
   background: linear-gradient(90deg, #06b6d4, #0891b2);
   color: #fff;
 }
+
+/* === Responsive Mobile Adjustments === */
+@media (max-width: 640px) {
+  .projects-container {
+    padding: 16px 12px;
+  }
+
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .projects-subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card {
+    padding: 12px;
+  }
+
+  .project-ss img {
+    height: 180px;
+  }
+}

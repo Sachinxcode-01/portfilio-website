@@ -49,6 +49,10 @@ export default function Navbar() {
   const linksRef = useRef(null);
 
   const checkOverflow = () => {
+    if (window.innerWidth <= 1024) {
+      setShowButton(true);
+      return;
+    }
     if (!navRef.current || !linksRef.current) return;
     setShowButton(linksRef.current.scrollWidth > navRef.current.offsetWidth);
   };
@@ -201,8 +205,10 @@ export default function Navbar() {
               flexDirection: "column",
               alignItems: "center",
               paddingTop: "5rem",
+              paddingBottom: "4rem",
               zIndex: 9999,
-              overflow: "hidden"
+              overflowY: "auto",
+              WebkitOverflowScrolling: "touch",
             }}
           >
             <button

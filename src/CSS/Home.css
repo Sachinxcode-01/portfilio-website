@@ -158,3 +158,110 @@
 .quick-link-item:hover .quick-link-label {
   color: var(--accent);
 }
+
+/* === Mobile Responsive Breakpoints === */
+@media (max-width: 820px) {
+  .home-section {
+    padding: 2rem 1rem 2rem;
+    gap: 2rem;
+  }
+
+  .home-top {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .photo-container {
+    flex: 0 0 260px;
+    width: 260px;
+    height: 260px;
+  }
+
+  .photo-ring {
+    width: 250px;
+    height: 250px;
+  }
+
+  .photo-frame {
+    width: 220px;
+    height: 220px;
+  }
+
+  .home-info {
+    min-width: 0;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-title {
+    font-size: 2.3rem;
+  }
+
+  .typing-effect {
+    font-size: 1rem;
+    white-space: normal;
+    border-right: none;
+    animation: none;
+    text-align: center;
+  }
+
+  .profession-tags {
+    justify-content: center;
+  }
+
+  .info-cards {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .info-card {
+    flex: 1 1 140px;
+    min-width: 130px;
+    padding: 10px 14px;
+  }
+
+  .hero-cta-btns {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    flex: 1 1 140px;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  .quick-links-list {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.9rem;
+  }
+
+  .photo-container {
+    flex: 0 0 220px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .photo-ring {
+    width: 210px;
+    height: 210px;
+  }
+
+  .photo-frame {
+    width: 185px;
+    height: 185px;
+  }
+
+  .profession-tag {
+    font-size: 0.82rem;
+    padding: 5px 12px;
+  }
+}

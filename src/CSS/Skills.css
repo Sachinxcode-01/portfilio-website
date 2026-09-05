@@ -116,3 +116,64 @@
   margin-bottom: 6px;
   transition: color 0.2s, transform 0.2s;
 }
+
+/* === Responsive Mobile Adjustments for Skills === */
+@media (max-width: 768px) {
+  .skills-header {
+    margin: 10px 0 12px 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .skills-underline {
+    margin: 6px auto 8px auto;
+  }
+
+  .skills-stage {
+    width: 100%;
+    height: 280px;
+    margin: 15px auto;
+  }
+
+  .skill-circle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .skill-circle img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .skill-circle span {
+    font-size: 8.5px;
+  }
+
+  .skills-table {
+    margin-top: 30px;
+    gap: 20px;
+  }
+
+  .skills-row {
+    gap: 16px;
+  }
+
+  .skill-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .google-arcade-showcase {
+    width: 100% !important;
+    padding: 24px 16px !important;
+    margin: 30px auto 20px !important;
+    border-radius: 18px !important;
+  }
+
+  .github-contributions-card {
+    width: 100% !important;
+    padding: 24px 14px !important;
+    margin: 30px auto 20px !important;
+    border-radius: 18px !important;
+  }
+}
