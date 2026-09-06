@@ -8,7 +8,7 @@
 
 .skills-header h2 {
   font-size: 1.25rem;
-  color: #00ffe0;
+  color: #00c8ff;
   font-weight: 600;
   margin: 0;
   line-height: 1.05;
@@ -17,7 +17,7 @@
 .skills-underline {
   width: 60px;
   height: 2px;
-  background: #00ffe0;
+  background: #00c8ff;
   margin: 6px 0 8px 0;
 }
 
@@ -101,7 +101,7 @@
 .skill-box h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #00ffe0;
+  color: #00c8ff;
   margin-bottom: 10px;
 }
 

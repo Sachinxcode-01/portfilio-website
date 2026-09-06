@@ -155,7 +155,7 @@ export default function Projects() {
           background: 'rgba(255, 255, 255, 0.03)',
           borderRadius: 20,
           padding: '36px 30px',
-          border: '1px solid rgba(0, 255, 224, 0.12)',
+          border: '1px solid rgba(0, 200, 255, 0.12)',
           boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4)',
         }}
       >
@@ -170,9 +170,9 @@ export default function Projects() {
                 textTransform: 'uppercase',
                 padding: '4px 10px',
                 borderRadius: '6px',
-                background: 'rgba(0, 255, 224, 0.12)',
-                color: '#00ffe0',
-                border: '1px solid rgba(0, 255, 224, 0.3)',
+                background: 'rgba(0, 200, 255, 0.12)',
+                color: '#00c8ff',
+                border: '1px solid rgba(0, 200, 255, 0.3)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
@@ -191,7 +191,7 @@ export default function Projects() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            style={{ color: '#00ffe0', letterSpacing: '-0.5px' }}
+            style={{ color: '#00c8ff', letterSpacing: '-0.5px' }}
           >
             🚀 Featured Projects
           </motion.h2>
@@ -237,13 +237,13 @@ export default function Projects() {
                   cursor: 'pointer',
                   transition: 'all 0.25s ease',
                   background: isActive
-                    ? 'linear-gradient(135deg, rgba(0, 255, 224, 0.22) 0%, rgba(0, 180, 255, 0.25) 100%)'
+                    ? 'linear-gradient(135deg, rgba(0, 200, 255, 0.22) 0%, rgba(0, 150, 255, 0.25) 100%)'
                     : 'rgba(255, 255, 255, 0.03)',
-                  color: isActive ? '#00ffe0' : '#cbd5e1',
+                  color: isActive ? '#00c8ff' : '#cbd5e1',
                   border: isActive
-                    ? '1px solid rgba(0, 255, 224, 0.45)'
+                    ? '1px solid rgba(0, 200, 255, 0.45)'
                     : '1px solid rgba(255, 255, 255, 0.08)',
-                  boxShadow: isActive ? '0 0 20px rgba(0, 255, 224, 0.25)' : 'none',
+                  boxShadow: isActive ? '0 0 20px rgba(0, 200, 255, 0.25)' : 'none',
                 }}
               >
                 <Icon size={16} />
@@ -253,7 +253,7 @@ export default function Projects() {
                     fontSize: '0.72rem',
                     padding: '2px 7px',
                     borderRadius: 999,
-                    background: isActive ? 'rgba(0, 255, 224, 0.3)' : 'rgba(255, 255, 255, 0.08)',
+                    background: isActive ? 'rgba(0, 200, 255, 0.3)' : 'rgba(255, 255, 255, 0.08)',
                     color: isActive ? '#fff' : '#9ca3af',
                   }}
                 >
@@ -288,7 +288,7 @@ export default function Projects() {
                   background: 'linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, rgba(10, 15, 25, 0.7) 100%)',
                   backdropFilter: 'blur(10px)',
                   WebkitBackdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(0, 255, 224, 0.15)',
+                  border: '1px solid rgba(0, 200, 255, 0.15)',
                   borderRadius: 18,
                   padding: 18,
                   overflow: 'hidden',
@@ -344,7 +344,7 @@ export default function Projects() {
                             fontWeight: 700,
                             padding: '3px 8px',
                             borderRadius: 6,
-                            background: 'rgba(0, 255, 224, 0.9)',
+                            background: 'rgba(0, 200, 255, 0.9)',
                             color: '#05131a',
                             letterSpacing: '0.5px',
                             boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
@@ -397,12 +397,12 @@ export default function Projects() {
                       <span
                         key={t}
                         style={{
-                          background: 'rgba(0, 255, 224, 0.06)',
-                          border: '1px solid rgba(0, 255, 224, 0.2)',
+                          background: 'rgba(0, 200, 255, 0.06)',
+                          border: '1px solid rgba(0, 200, 255, 0.2)',
                           padding: '3px 9px',
                           borderRadius: 6,
                           fontSize: '0.75rem',
-                          color: '#00ffe0',
+                          color: '#00c8ff',
                           fontWeight: 500,
                         }}
                       >
@@ -425,7 +425,7 @@ export default function Projects() {
                       href={p.code}
                       target="_blank"
                       rel="noreferrer"
-                      whileHover={{ scale: 1.05, borderColor: '#00ffe0' }}
+                      whileHover={{ scale: 1.05, borderColor: '#00c8ff' }}
                       whileTap={{ scale: 0.95 }}
                       style={{
                         display: 'inline-flex',
@@ -452,14 +452,14 @@ export default function Projects() {
                         rel="noreferrer"
                         whileHover={{
                           scale: 1.05,
-                          boxShadow: '0 0 16px rgba(0, 255, 224, 0.4)',
+                          boxShadow: '0 0 16px rgba(0, 200, 255, 0.4)',
                         }}
                         whileTap={{ scale: 0.95 }}
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: 6,
-                          background: 'linear-gradient(135deg, #00ffe0 0%, #00a8ff 100%)',
+                          background: 'linear-gradient(135deg, #00c8ff 0%, #00a8ff 100%)',
                           color: '#05131a',
                           padding: '7px 16px',
                           borderRadius: 8,

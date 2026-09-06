@@ -263,15 +263,15 @@ export default function Skills() {
             transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
             whileHover={{
               scale: 1.15,
-              boxShadow: "0 0 25px 5px rgba(0,255,255,0.45)",
-              background: "rgba(0,255,255,0.12)",
+              boxShadow: "0 0 25px 5px rgba(0,200,255,0.45)",
+              background: "rgba(0,200,255,0.12)",
             }}
           >
             <motion.img
               src={s.logo}
               alt={s.name}
               whileHover={{
-                filter: "drop-shadow(0 0 10px rgba(0,255,255,0.8)) brightness(1.5)",
+                filter: "drop-shadow(0 0 10px rgba(0,200,255,0.8)) brightness(1.5)",
                 rotate: [0, 8, -8, 0],
                 transition: { duration: 0.4 },
               }}

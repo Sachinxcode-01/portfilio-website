@@ -20,7 +20,7 @@ import "../CSS/About.css";
 
 const PILLARS = [
   {
-    icon: <Terminal size={24} color="#00ffe0" />,
+    icon: <Terminal size={24} color="#00c8ff" />,
     title: "Scalable Backend Systems",
     desc: "Architecting resilient RESTful APIs, clean architecture services, and production databases using Node.js, Express, Python, MongoDB, and PostgreSQL.",
     tags: ["Node.js", "Python", "Clean Arch", "PostgreSQL"],
@@ -83,8 +83,8 @@ const TIMELINE = [
     org: "Rural Engineering College, Hulkoti (VTU Affiliated)",
     desc: "Pursuing bachelor's degree with a deep focus on Data Structures & Algorithms, Operating Systems, Database Management, and Machine Learning systems.",
     skills: ["Data Structures", "Algorithms", "System Design"],
-    icon: <GraduationCap size={18} color="#00ffe0" />,
-    iconBg: "rgba(0, 255, 224, 0.15)",
+    icon: <GraduationCap size={18} color="#00c8ff" />,
+    iconBg: "rgba(0, 200, 255, 0.15)",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function AboutMe() {
         {/* --- Header & Intro --- */}
         <div className="about-header-area">
           <div className="about-pill">
-            <Sparkles size={14} color="#00ffe0" />
+            <Sparkles size={14} color="#00c8ff" />
             <span>Engineer · Builder · Tech Lead</span>
           </div>
 
@@ -245,7 +245,7 @@ export default function AboutMe() {
                 whileHover={{ scale: 1.01 }}
               >
                 <div className="edu-icon">
-                  <GraduationCap size={24} color="#00ffe0" />
+                  <GraduationCap size={24} color="#00c8ff" />
                 </div>
                 <div className="edu-info">
                   <div className="edu-title-row">
@@ -256,7 +256,7 @@ export default function AboutMe() {
                   <div className="edu-meta-list">
                     {item.meta.map((m, j) => (
                       <span key={j} className="edu-meta-item">
-                        <CheckCircle2 size={13} color="#00ffe0" />
+                        <CheckCircle2 size={13} color="#00c8ff" />
                         {m}
                       </span>
                     ))}

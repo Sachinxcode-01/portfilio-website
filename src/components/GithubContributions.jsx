@@ -36,7 +36,7 @@ export default function GithubContributions() {
       'rgba(0, 220, 255, 0.22)',
       'rgba(0, 220, 255, 0.45)',
       'rgba(0, 220, 255, 0.72)',
-      '#00ffe0',
+      '#00c8ff',
     ],
   }
 
@@ -144,10 +144,10 @@ export default function GithubContributions() {
         padding: '36px 32px',
         borderRadius: '20px',
         background: 'linear-gradient(165deg, rgba(255, 255, 255, 0.04) 0%, rgba(10, 15, 25, 0.7) 100%)',
-        border: '1px solid rgba(0, 255, 224, 0.18)',
+        border: '1px solid rgba(0, 200, 255, 0.18)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(0, 255, 224, 0.02)',
+        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(0, 200, 255, 0.02)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -160,7 +160,7 @@ export default function GithubContributions() {
           right: '-100px',
           width: '320px',
           height: '320px',
-          background: 'radial-gradient(circle, rgba(0, 255, 224, 0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(0, 200, 255, 0.12) 0%, transparent 70%)',
           borderRadius: '50%',
           pointerEvents: 'none',
         }}
@@ -201,9 +201,9 @@ export default function GithubContributions() {
                 textTransform: 'uppercase',
                 padding: '4px 10px',
                 borderRadius: '6px',
-                background: 'rgba(0, 255, 224, 0.12)',
-                color: '#00ffe0',
-                border: '1px solid rgba(0, 255, 224, 0.3)',
+                background: 'rgba(0, 200, 255, 0.12)',
+                color: '#00c8ff',
+                border: '1px solid rgba(0, 200, 255, 0.3)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
@@ -247,7 +247,7 @@ export default function GithubContributions() {
               letterSpacing: '-0.5px',
             }}
           >
-            GitHub Activity & <span style={{ color: '#00ffe0' }}>Contributions</span>
+            GitHub Activity & <span style={{ color: '#00c8ff' }}>Contributions</span>
           </h3>
           <p style={{ margin: 0, fontSize: '0.95rem', color: '#9ca3af' }}>
             Verified commits, open-source codebases, and continuous development track record.
@@ -261,8 +261,8 @@ export default function GithubContributions() {
           rel="noopener noreferrer"
           whileHover={{
             scale: 1.05,
-            borderColor: '#00ffe0',
-            boxShadow: '0 0 20px rgba(0, 255, 224, 0.35)',
+            borderColor: '#00c8ff',
+            boxShadow: '0 0 20px rgba(0, 200, 255, 0.35)',
             y: -2,
           }}
           whileTap={{ scale: 0.95 }}
@@ -274,9 +274,9 @@ export default function GithubContributions() {
             borderRadius: '999px',
             fontSize: '0.92rem',
             fontWeight: 600,
-            color: '#00ffe0',
-            background: 'rgba(0, 255, 224, 0.08)',
-            border: '1px solid rgba(0, 255, 224, 0.3)',
+            color: '#00c8ff',
+            background: 'rgba(0, 200, 255, 0.08)',
+            border: '1px solid rgba(0, 200, 255, 0.3)',
             textDecoration: 'none',
             cursor: 'pointer',
             transition: 'all 0.25s ease',
@@ -299,7 +299,7 @@ export default function GithubContributions() {
       >
         {/* Card 1: Total Contributions */}
         <motion.div
-          whileHover={{ y: -4, borderColor: 'rgba(0, 255, 224, 0.4)' }}
+          whileHover={{ y: -4, borderColor: 'rgba(0, 200, 255, 0.4)' }}
           transition={{ duration: 0.25 }}
           style={{
             background: 'rgba(255, 255, 255, 0.025)',
@@ -317,12 +317,12 @@ export default function GithubContributions() {
               width: '46px',
               height: '46px',
               borderRadius: '12px',
-              background: 'rgba(0, 255, 224, 0.1)',
-              border: '1px solid rgba(0, 255, 224, 0.25)',
+              background: 'rgba(0, 200, 255, 0.1)',
+              border: '1px solid rgba(0, 200, 255, 0.25)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#00ffe0',
+              color: '#00c8ff',
             }}
           >
             <GitCommit size={22} />
@@ -479,9 +479,9 @@ export default function GithubContributions() {
               borderRadius: '8px',
               fontSize: '0.86rem',
               fontWeight: 600,
-              background: activeTab === 'calendar' ? 'rgba(0, 255, 224, 0.15)' : 'transparent',
-              color: activeTab === 'calendar' ? '#00ffe0' : '#9ca3af',
-              border: activeTab === 'calendar' ? '1px solid rgba(0, 255, 224, 0.35)' : '1px solid transparent',
+              background: activeTab === 'calendar' ? 'rgba(0, 200, 255, 0.15)' : 'transparent',
+              color: activeTab === 'calendar' ? '#00c8ff' : '#9ca3af',
+              border: activeTab === 'calendar' ? '1px solid rgba(0, 200, 255, 0.35)' : '1px solid transparent',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -500,9 +500,9 @@ export default function GithubContributions() {
               borderRadius: '8px',
               fontSize: '0.86rem',
               fontWeight: 600,
-              background: activeTab === 'trends' ? 'rgba(0, 255, 224, 0.15)' : 'transparent',
-              color: activeTab === 'trends' ? '#00ffe0' : '#9ca3af',
-              border: activeTab === 'trends' ? '1px solid rgba(0, 255, 224, 0.35)' : '1px solid transparent',
+              background: activeTab === 'trends' ? 'rgba(0, 200, 255, 0.15)' : 'transparent',
+              color: activeTab === 'trends' ? '#00c8ff' : '#9ca3af',
+              border: activeTab === 'trends' ? '1px solid rgba(0, 200, 255, 0.35)' : '1px solid transparent',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -516,7 +516,7 @@ export default function GithubContributions() {
         </div>
 
         <div style={{ fontSize: '0.82rem', color: '#6b7280', display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <TrendingUp size={14} color="#00ffe0" />
+          <TrendingUp size={14} color="#00c8ff" />
           <span>Synced directly with GitHub API</span>
         </div>
       </div>
@@ -599,7 +599,7 @@ export default function GithubContributions() {
                     style={{
                       fontSize: '0.72rem',
                       fontWeight: 600,
-                      color: d.commits > 0 ? '#00ffe0' : '#6b7280',
+                      color: d.commits > 0 ? '#00c8ff' : '#6b7280',
                       marginBottom: '6px',
                     }}
                   >
@@ -618,9 +618,9 @@ export default function GithubContributions() {
                       borderRadius: '6px 6px 2px 2px',
                       background:
                         d.commits > 0
-                          ? 'linear-gradient(180deg, #00ffe0 0%, rgba(0, 200, 255, 0.3) 100%)'
+                          ? 'linear-gradient(180deg, #00c8ff 0%, rgba(0, 200, 255, 0.3) 100%)'
                           : 'rgba(255, 255, 255, 0.05)',
-                      boxShadow: d.commits > 0 ? '0 0 12px rgba(0, 255, 224, 0.35)' : 'none',
+                      boxShadow: d.commits > 0 ? '0 0 12px rgba(0, 200, 255, 0.35)' : 'none',
                       cursor: 'pointer',
                     }}
                   />
@@ -663,7 +663,7 @@ export default function GithubContributions() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Star size={16} color="#00ffe0" />
+            <Star size={16} color="#00c8ff" />
             <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#fff' }}>
               Primary Language Distribution Across Repositories
             </span>
