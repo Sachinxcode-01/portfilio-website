@@ -300,7 +300,7 @@ export default function Skills() {
                 <h3 className="text-xl text-cyan-400 font-semibold mb-3">{col.title}</h3>
                 <ul>
                   {col.items.map((item, i) => (
-                    <motion.li key={i} whileHover={{ x: 6, color: "#00ffc8" }}>
+                    <motion.li key={i} whileHover={{ x: 6, color: "#00c8ff" }}>
                       {item}
                     </motion.li>
                   ))}

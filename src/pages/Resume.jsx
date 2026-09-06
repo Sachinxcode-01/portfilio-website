@@ -57,7 +57,7 @@ export default function Resume() {
             <h3 style={{ fontSize: 24, color: "#00b4ff", marginBottom: 4 }}>
               👨‍💻 Sachin K
             </h3>
-            <p style={{ margintop: 10, fontSize: 15, color: "#ccc" }}>
+            <p style={{ marginTop: 10, fontSize: 15, color: "#ccc" }}>
               1st Year B.E — Computer Science | R.E.C
             </p>
             <p style={{ margin: "4px 0", fontSize: 14, color: "#aaa" }}>

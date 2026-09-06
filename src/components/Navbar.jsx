@@ -121,6 +121,7 @@ export default function Navbar() {
               key={l.to}
               to={l.to}
               end
+              aria-current={({ isActive }) => isActive ? "page" : undefined}
               style={{
                 fontSize: "0.95rem",
                 textDecoration: "none",
@@ -218,7 +219,7 @@ export default function Navbar() {
                 top: "1.5rem",
                 right: "1.5rem",
                 fontSize: "2.2rem",
-                color: "#00ffc8",
+                color: "#00c8ff",
                 background: "none",
                 border: "none",
                 cursor: "pointer",

@@ -92,7 +92,7 @@ export default function Certificates() {
                 borderRadius: 8,
                 border: "none",
                 cursor: "pointer",
-                background: tab === t ? "#007bff" : "#333",
+                background: tab === t ? "#00c8ff" : "#333",
                 color: "#fff",
                 fontWeight: 500,
                 transition: "0.3s",
@@ -154,7 +154,7 @@ export default function Certificates() {
                     className="btn"
                     onClick={() => setSelectedCert(c)}
                     style={{
-                      background: "#007bff",
+                      background: "#00c8ff",
                       border: "none",
                       color: "white",
                       borderRadius: 6,

@@ -7,19 +7,20 @@
  * Changes from original:
  *  - Removed 'use client' directive (Next.js only)
  *  - Removed TypeScript type annotations → plain JSX
- *  - Theme detection uses useTheme from next-themes (works standalone via ThemeProvider)
+ *  - Theme detection uses simple CSS class check (no next-themes dependency)
  *  - @/ imports work via the Vite alias in vite.config.mjs
  */
 import { cn } from '@/lib/utils';
-import { useTheme } from 'next-themes';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 export function DottedSurface({ className, ...props }) {
-  const { theme } = useTheme();
-
   const containerRef = useRef(null);
   const sceneRef = useRef(null);
+
+  // Simple dark mode detection via CSS class — site is dark-only.
+  const isDark = () => document.documentElement.classList.contains('dark')
+    || !document.documentElement.hasAttribute('data-theme');
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -71,7 +72,7 @@ export function DottedSurface({ className, ...props }) {
         positions.push(x, y, z);
 
         // Cyan/violet accent dots to match the portfolio palette
-        if (theme === 'dark') {
+        if (isDark()) {
           // bright cyan dots on dark
           colors.push(0, 0.78, 1); // #00c8ff normalised 0-1
         } else {
@@ -186,7 +187,7 @@ export function DottedSurface({ className, ...props }) {
         }
       }
     };
-  }, [theme]);
+  }, []);
 
   return (
     <div

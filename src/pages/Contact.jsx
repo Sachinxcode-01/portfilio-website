@@ -15,6 +15,7 @@ export default function Contact() {
   });
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
+  const [sending, setSending] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -30,8 +31,10 @@ export default function Contact() {
       newErrors.contact = "Email or phone is required.";
     } else {
       const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      const phonePattern = /^[+]?[\d\s\-]{10,}$/;
       const isEmail = emailPattern.test(form.contact);
-      if (!isEmail && isNaN(form.contact)) {
+      const isPhone = phonePattern.test(form.contact);
+      if (!isEmail && !isPhone) {
         newErrors.contact = "Please enter a valid email or phone number.";
       }
     }
@@ -46,6 +49,7 @@ export default function Contact() {
 
     setErrors({});
     setStatus("Sending...");
+    setSending(true);
 
     emailjs
       .send(
@@ -63,10 +67,12 @@ export default function Contact() {
         () => {
           setStatus("✅ Message sent successfully!");
           setForm({ name: "", contact: "", subject: "", message: "" });
+          setSending(false);
         },
         (error) => {
           console.error("FAILED...", error);
           setStatus("❌ Failed to send. Try again later.");
+          setSending(false);
         }
       );
   };
@@ -137,7 +143,7 @@ export default function Contact() {
         {errors.subject && <span className="field-error">{errors.subject}</span>}
         <textarea name="message" placeholder="Your Message..." value={form.message} onChange={handleChange} rows="5" required aria-label="Your message" />
         {errors.message && <span className="field-error">{errors.message}</span>}
-        <motion.button type="submit" className="contact-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <motion.button type="submit" className="contact-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} disabled={sending}>
           🚀 Send Message
         </motion.button>
 

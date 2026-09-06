@@ -26,7 +26,7 @@ const IMAGES = {
     },
 
     {
-      id: 1,
+      id: 2,
       caption:
         "📂 Portfolio - Smart - Portfolio",
       photos: ["/assets/images/gallery/web1.png", "/assets/images/gallery/web2.png"],
@@ -189,7 +189,7 @@ export default function Gallery() {
                     border: "1px solid rgba(255,255,255,0.04)",
                     borderRadius: "16px",
                     padding: "28px",
-                    boxShadow: "inset 0 0 25px rgba(0, 255, 200, 0.03), 0 10px 40px rgba(0,0,0,0.6)",
+                    boxShadow: "inset 0 0 25px rgba(0, 200, 255, 0.03), 0 10px 40px rgba(0,0,0,0.6)",
                     backdropFilter: "blur(4px)"
                   }}
                 >
@@ -214,7 +214,7 @@ export default function Gallery() {
                       }}
                       whileHover={{
                         scale: 1.12,
-                        filter: "drop-shadow(0 0 15px rgba(0, 255, 200, 0.4))"
+                        filter: "drop-shadow(0 0 15px rgba(0, 200, 255, 0.4))"
                       }}
                     >
                       {/* Slow glowing halo rings */}
@@ -233,9 +233,9 @@ export default function Gallery() {
                           width: "82px",
                           height: "82px",
                           borderRadius: "50%",
-                          border: "1.5px solid rgba(0, 255, 200, 0.4)",
+                          border: "1.5px solid rgba(0, 200, 255, 0.4)",
                           zIndex: 0,
-                          boxShadow: "0 0 10px rgba(0, 255, 200, 0.2)"
+                          boxShadow: "0 0 10px rgba(0, 200, 255, 0.2)"
                         }}
                       />
                       
