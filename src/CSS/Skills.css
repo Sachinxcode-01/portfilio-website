@@ -52,8 +52,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 255, 255, 0.04);
-  border: 1px solid rgba(0, 255, 255, 0.18);
+  background: rgba(0, 200, 255, 0.04);
+  border: 1px solid rgba(0, 200, 255, 0.18);
   backdrop-filter: blur(6px);
   cursor: pointer;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
@@ -63,7 +63,7 @@
   width: 28px;
   height: 28px;
   margin-bottom: 2px;
-  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.36)) brightness(1.1);
+  filter: drop-shadow(0 0 6px rgba(0, 200, 255, 0.36)) brightness(1.1);
 }
 
 .skill-circle span {
