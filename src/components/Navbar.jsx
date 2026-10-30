@@ -1,16 +1,34 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import "../CSS/Navbar.css";
 
-const links = [
+// Primary navigation links (streamlined to reduce cognitive clutter)
+const primaryLinks = [
   { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
   { label: "Projects", to: "/projects" },
-  { label: "Gallery", to: "/gallery" },
   { label: "Skills", to: "/skills" },
   { label: "Certificates", to: "/certificates" },
+];
+
+// Secondary links grouped inside the "More ▾" dropdown
+const moreLinks = [
+  { label: "Gallery", to: "/gallery", icon: "🖼️" },
+  { label: "Blog", to: "/blog", icon: "✍️" },
+  { label: "Resume", to: "/resume", icon: "📄" },
+];
+
+// Complete links for mobile menu
+const allMobileLinks = [
+  { label: "Home", to: "/" },
+  { label: "About Me", to: "/about" },
+  { label: "Projects", to: "/projects" },
+  { label: "Skills", to: "/skills" },
+  { label: "Certificates", to: "/certificates" },
+  { label: "Gallery", to: "/gallery" },
   { label: "Blog", to: "/blog" },
   { label: "Resume", to: "/resume" },
-  { label: "About Me", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -22,8 +40,8 @@ const menuVariants = {
     height: "100vh",
     transition: {
       staggerChildren: 0.05,
-      delayChildren: 0.05
-    }
+      delayChildren: 0.05,
+    },
   },
   exit: {
     opacity: 0,
@@ -31,22 +49,43 @@ const menuVariants = {
     transition: {
       staggerChildren: 0.03,
       staggerDirection: -1,
-      when: "afterChildren"
-    }
-  }
+      when: "afterChildren",
+    },
+  },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: -20 },
+  hidden: { opacity: 0, y: -15 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 150, damping: 15 } },
-  exit: { opacity: 0, y: -10 }
+  exit: { opacity: 0, y: -10 },
 };
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const navRef = useRef(null);
   const linksRef = useRef(null);
+  const moreRef = useRef(null);
+  const location = useLocation();
+
+  const isMoreActive = moreLinks.some((l) => location.pathname === l.to);
+
+  // Close dropdown on route change or outside click
+  useEffect(() => {
+    setIsMoreOpen(false);
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (moreRef.current && !moreRef.current.contains(e.target)) {
+        setIsMoreOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
 
   const checkOverflow = () => {
     if (window.innerWidth <= 1024) {
@@ -54,7 +93,7 @@ export default function Navbar() {
       return;
     }
     if (!navRef.current || !linksRef.current) return;
-    setShowButton(linksRef.current.scrollWidth > navRef.current.offsetWidth);
+    setShowButton(linksRef.current.scrollWidth > navRef.current.offsetWidth - 220);
   };
 
   useEffect(() => {
@@ -64,64 +103,38 @@ export default function Navbar() {
   }, []);
 
   return (
-    <>
-      {/* --- Navbar --- */}
-      <nav
-        ref={navRef}
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 100,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "1rem 2rem",
-          borderBottom: "1px solid rgba(255,255,255,0.1)",
-          background: "rgba(0,0,0,0.6)",
-          backdropFilter: "blur(10px)",
-        }}
-      >
-        {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+    <header className="site-header" role="banner">
+      {/* --- Main Navigation Bar --- */}
+      <nav ref={navRef} className="nav" aria-label="Main Navigation">
+        {/* Brand Logo & Name */}
+        <Link to="/" className="nav-left" aria-label="Sachin K Portfolio Home">
           <motion.div
             className="logo"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 200 }}
-            style={{
-              fontWeight: "bold",
-              fontSize: "1.4rem",
-              color: "var(--accent)",
-            }}
           >
             SK
           </motion.div>
 
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <h1 style={{ margin: 0, fontSize: 14 }}>Sachin K</h1>
-            <div style={{ fontSize: 12, color: "var(--muted)" }}>
-              CSE Student • Developer
-            </div>
+            {/* Semantic span instead of h1 to maintain single h1 per page outline */}
+            <span className="brand-title">Sachin K</span>
+            <span className="nav-tagline">CSE Student • Developer</span>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Links */}
         <div
           ref={linksRef}
-          style={{
-            display: showButton ? "none" : "flex",
-            justifyContent: "center",
-            gap: "2rem",
-            alignItems: "center",
-            flexGrow: 1,
-          }}
+          className="nav-links"
+          style={{ display: showButton ? "none" : "flex" }}
         >
-          {links.map((l) => (
+          {primaryLinks.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
-              end
-              aria-current={({ isActive }) => isActive ? "page" : undefined}
+              end={l.to === "/"}
               style={{
                 fontSize: "0.95rem",
                 textDecoration: "none",
@@ -130,18 +143,11 @@ export default function Navbar() {
               }}
             >
               {({ isActive }) => (
-                <motion.div
-                  whileHover={{
-                    scale: 1.1,
-                    color: "var(--accent)",
-                    textShadow: "0 0 8px var(--accent)",
-                  }}
-                  transition={{ duration: 0.3 }}
-                  style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-                >
+                <div className="nav-link-content">
                   <motion.span
+                    whileHover={{ scale: 1.08, color: "var(--accent)" }}
                     animate={{ color: isActive ? "var(--accent)" : "white" }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                   >
                     {l.label}
                   </motion.span>
@@ -149,26 +155,105 @@ export default function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="underline"
-                      initial={{ opacity: 0, y: 5 }}
+                      className="underline"
+                      initial={{ opacity: 0, y: 3 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                      style={{
-                        width: "70%",
-                        height: "2px",
-                        marginTop: "4px",
-                        borderRadius: "1px",
-                        backgroundColor: "var(--accent)",
-                        boxShadow: "0 0 6px var(--accent)",
-                      }}
+                      transition={{ duration: 0.25 }}
                     />
                   )}
-                </motion.div>
+                </div>
               )}
             </NavLink>
           ))}
+
+          {/* Grouped Secondary Pages: "More ▾" Dropdown */}
+          <div
+            ref={moreRef}
+            className="nav-dropdown"
+            onMouseEnter={() => setIsMoreOpen(true)}
+            onMouseLeave={() => setIsMoreOpen(false)}
+          >
+            <button
+              type="button"
+              className={`nav-dropdown-btn ${isMoreActive ? "active" : ""}`}
+              onClick={() => setIsMoreOpen((prev) => !prev)}
+              aria-haspopup="true"
+              aria-expanded={isMoreOpen}
+              aria-label="More portfolio pages"
+            >
+              <span style={{ color: isMoreActive ? "var(--accent)" : "inherit" }}>
+                More
+              </span>
+              <motion.span
+                animate={{ rotate: isMoreOpen ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+                style={{ fontSize: "0.75rem", display: "inline-block" }}
+              >
+                ▼
+              </motion.span>
+            </button>
+
+            <AnimatePresence>
+              {isMoreOpen && (
+                <motion.div
+                  className="nav-dropdown-menu"
+                  initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                  transition={{ duration: 0.18, ease: "easeOut" }}
+                >
+                  {moreLinks.map((item) => (
+                    <NavLink
+                      key={item.to}
+                      to={item.to}
+                      className={({ isActive }) =>
+                        `nav-dropdown-item ${isActive ? "active" : ""}`
+                      }
+                      onClick={() => setIsMoreOpen(false)}
+                    >
+                      <span style={{ fontSize: "1rem" }}>{item.icon}</span>
+                      <span>{item.label}</span>
+                    </NavLink>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Contact Direct Link / CTA */}
+          <NavLink
+            to="/contact"
+            style={{
+              fontSize: "0.95rem",
+              textDecoration: "none",
+              color: "white",
+              fontWeight: 500,
+            }}
+          >
+            {({ isActive }) => (
+              <div className="nav-link-content">
+                <motion.span
+                  whileHover={{ scale: 1.08, color: "var(--accent)" }}
+                  animate={{ color: isActive ? "var(--accent)" : "white" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Contact
+                </motion.span>
+                {isActive && (
+                  <motion.div
+                    layoutId="underline"
+                    className="underline"
+                    initial={{ opacity: 0, y: 3 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                  />
+                )}
+              </div>
+            )}
+          </NavLink>
         </div>
 
-        {/* Hamburger */}
+        {/* Mobile Hamburger Toggle Button */}
         {showButton && (
           <button
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -187,7 +272,7 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* --- Mobile Menu --- */}
+      {/* --- Mobile Fullscreen Drawer Menu --- */}
       <AnimatePresence>
         {isOpen && showButton && (
           <motion.div
@@ -201,7 +286,8 @@ export default function Navbar() {
               left: 0,
               width: "100%",
               background: "rgba(3,3,6,0.98)",
-              backdropFilter: "blur(16px)",
+              backdropFilter: "blur(18px)",
+              WebkitBackdropFilter: "blur(18px)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -229,9 +315,9 @@ export default function Navbar() {
               ✕
             </button>
 
-            {links.map((l) => (
-              <motion.div 
-                key={l.to} 
+            {allMobileLinks.map((l) => (
+              <motion.div
+                key={l.to}
                 variants={itemVariants}
                 style={{ width: "100%" }}
               >
@@ -242,16 +328,16 @@ export default function Navbar() {
                     display: "block",
                     color: "#fff",
                     textDecoration: "none",
-                    padding: "1.2rem 0",
+                    padding: "1.1rem 0",
                     width: "100%",
                     textAlign: "center",
                     fontSize: 18,
                     fontWeight: 600,
                     letterSpacing: "0.5px",
-                    borderBottom: "1px solid rgba(255,255,255,0.03)",
-                    transition: "color 0.2s ease"
+                    borderBottom: "1px solid rgba(255,255,255,0.04)",
+                    transition: "color 0.2s ease",
                   }}
-                  className={({ isActive }) => isActive ? "text-cyan-400" : ""}
+                  className={({ isActive }) => (isActive ? "text-cyan-400" : "")}
                 >
                   {l.label}
                 </NavLink>
@@ -260,6 +346,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </header>
   );
 }
