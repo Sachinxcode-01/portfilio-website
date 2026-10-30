@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
@@ -47,6 +47,12 @@ export default function Navbar() {
   const [showButton, setShowButton] = useState(false);
   const navRef = useRef(null);
   const linksRef = useRef(null);
+  const brandRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const checkOverflow = () => {
     if (window.innerWidth <= 1024) {
@@ -54,7 +60,13 @@ export default function Navbar() {
       return;
     }
     if (!navRef.current || !linksRef.current) return;
-    setShowButton(linksRef.current.scrollWidth > navRef.current.offsetWidth);
+    const navStyle = window.getComputedStyle(navRef.current);
+    const paddingX =
+      parseFloat(navStyle.paddingLeft || 0) +
+      parseFloat(navStyle.paddingRight || 0);
+    const brandWidth = brandRef.current ? brandRef.current.offsetWidth : 0;
+    const availableWidth = navRef.current.offsetWidth - brandWidth - paddingX;
+    setShowButton(linksRef.current.scrollWidth > availableWidth);
   };
 
   useEffect(() => {
@@ -82,7 +94,17 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <Link
+          to="/"
+          ref={brandRef}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+            textDecoration: "none",
+            color: "inherit",
+          }}
+        >
           <motion.div
             className="logo"
             initial={{ scale: 0 }}
@@ -103,7 +125,7 @@ export default function Navbar() {
               CSE Student • Developer
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Links */}
         <div
@@ -121,7 +143,6 @@ export default function Navbar() {
               key={l.to}
               to={l.to}
               end
-              aria-current={({ isActive }) => isActive ? "page" : undefined}
               style={{
                 fontSize: "0.95rem",
                 textDecoration: "none",
@@ -230,8 +251,8 @@ export default function Navbar() {
             </button>
 
             {links.map((l) => (
-              <motion.div 
-                key={l.to} 
+              <motion.div
+                key={l.to}
                 variants={itemVariants}
                 style={{ width: "100%" }}
               >
